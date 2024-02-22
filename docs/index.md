@@ -8,8 +8,10 @@ MySQL Workbench is a visual database design tool that integrates SQL development
 
 ## Intended Users
 This documentation is intended for:
-- New users to MySQL to learn about databases.
-- Second-term Full-stack Web Development student of BCIT.
+
+* New users to MySQL to learn about databases
+
+* Second-term Full-stack Web Development student of BCIT.
 
 
 ## Prerequisite Knowledge
@@ -20,8 +22,9 @@ This documentation is intended for:
 
 ## Software Requirements
 
-- [MySQL Server 8.0](https://dev.mysql.com/downloads/installer/)
-- [MySQL Workbench 8.0](https://dev.mysql.com/downloads/installer/)
+* [MySQL Server 8.0](https://dev.mysql.com/downloads/installer/)
+
+* [MySQL Workbench 8.0](https://dev.mysql.com/downloads/installer/)
 
 >NOTE: MySQL Workbench and Server can be found in the same installation wizard
 
