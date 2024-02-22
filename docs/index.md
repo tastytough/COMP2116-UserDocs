@@ -6,19 +6,19 @@ Welcome! This documentation will guide you to use MySQL Workbench and help you w
 MySQL Workbench is a visual database design tool that integrates SQL development, administration, database design, creation and maintenance into a single integrated development environment for the MySQL database system. 
 
 
-# Intended Users
+## Intended Users
 This documentation is intended for:
 - New users to MySQL to learn about databases.
 - Second-term Full-stack Web Development student of BCIT.
 
 
-# Prerequisite Knowledge
+## Prerequisite Knowledge
 - Having a basic knowledge of Microsoft Excel 
     - know how to create a simple table with data in rows and columns.
     - how to format a table, and what data type should be in a specific cell.
 - Set up a connection from MySQL Workbench to MySQL server.
 
-# Software Requirements
+## Software Requirements
 
 - [MySQL Server 8.0](https://dev.mysql.com/downloads/installer/)
 - [MySQL Workbench 8.0](https://dev.mysql.com/downloads/installer/)
@@ -27,9 +27,9 @@ This documentation is intended for:
 
 
 
-# Procedures Overview
+## Procedures Overview
 
-# Typographical Conventions
+## Typographical Conventions
 1. When you see **bold text**, it’s a mouse action:
 
     E.g **Click** [File, New Query Tab] to create a new query tab to type commands for your table.
@@ -46,9 +46,9 @@ This documentation is intended for:
 
 5. File names, schemas, tables are shown as a same format: test-constrainst-e-nguyen 
 
-# Notes and Warning Messages
+## Notes and Warning Messages
 
-# Goal of Documentation
+## Goal of Documentation
 - Learn about ERD, draw ERD
 - Learn about data types in databases
 - Learn about primary keys, foreign keys
