@@ -51,6 +51,14 @@ This documentation is intended for:
 5. File names, schemas, tables are shown as a same format: test-constrainst-e-nguyen 
 
 ## Notes and Warning Messages
+!!! info
+    example text
+
+!!! tips
+    example text
+
+!!! warning
+    example text
 
 ## Goal of Documentation
 - Learn about ERD, draw ERD
