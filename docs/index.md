@@ -2,8 +2,8 @@
 
 Welcome! This documentation will guide you to use MySQL Workbench and help you with initial setups to execute simple tables in databases.
 
->
-MySQL Workbench is a visual database design tool that integrates SQL development, administration, database design, creation and maintenance into a single integrated development environment for the MySQL database system. 
+!!! info 
+    MySQL Workbench is a visual database design tool that integrates SQL development, administration, database design, creation and maintenance into a single integrated development environment for the MySQL database system. 
 
 
 ## Intended Users
@@ -26,7 +26,8 @@ This documentation is intended for:
 
 * [MySQL Workbench 8.0](https://dev.mysql.com/downloads/installer/)
 
->NOTE: MySQL Workbench and Server can be found in the same installation wizard
+!!! info
+    MySQL Workbench and Server can be found in the same installation wizard
 
 
 

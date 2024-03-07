@@ -1,4 +1,8 @@
 site_name: MySQL 8.0 User Documentation
+markdown_extensions:
+- admonition
+- pymdownx.details
+- pymdownx.superfences
 theme:
   name: material
   features:
