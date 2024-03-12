@@ -29,13 +29,13 @@ The goal of this section is walk you through a basic instruction of using SELECT
 
 Basic SELECT statement in MySQL comes with five clauses. To memorize the order of SQL queries, you can use this following tip:
 
-!!! tip "Tip"
-SELECT              SOME
-FROM                FRENCH
-WHERE               WAITERS
-GROUP BY            GROW
-HAVING              HEALTHY
-ORDER BY            ORANGES
+!!! tips
+    SELECT              SOME
+    FROM                FRENCH
+    WHERE               WAITERS
+    GROUP BY            GROW
+    HAVING              HEALTHY
+    ORDER BY            ORANGES
 
 ## SQL Query order of execution
 
