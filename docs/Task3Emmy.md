@@ -5,23 +5,24 @@ Relational Database Management System is a program allow you to create databases
 It includes five main sets of commands which are using frequently in MySQL:
 
 1. Data Definition Language(DDL)
-    CREATE
-    ALTER
-    DROP
+    * CREATE
+    * ALTER
+    * DROP
+    
 2. Data Query Language (DQL)
-    SELECT
+    * SELECT
 3. Data Manipulation Language (DML)
-    INSERT
-    UPDATE
-    DELETE
+    * INSERT
+    * UPDATE
+    * DELETE
 4. Data Control Language (DCL)
-    CREATE USER
-    GRANT
-    REVOKE
+    * CREATE USER
+    * GRANT
+    * REVOKE
 5. Transaction Control Language (TCL)
-    BEGIN
-    COMMIT
-    ROLLBACK
+    * BEGIN
+    * COMMIT
+    * ROLLBACK
 
 The goal of this section is walk you through a basic instruction of using SELECT command in Data Query Language of MySQL to retrieve data from databases. 
 
@@ -29,13 +30,15 @@ The goal of this section is walk you through a basic instruction of using SELECT
 
 Basic SELECT statement in MySQL comes with five clauses. To memorize the order of SQL queries, you can use this following tip:
 
-!!! tips
-    SELECT              SOME
-    FROM                FRENCH
-    WHERE               WAITERS
-    GROUP BY            GROW
-    HAVING              HEALTHY
-    ORDER BY            ORANGES
+!!! tips "Tip"
+    <pre>
+    **S**ELECT              **S**OME
+    **F**ROM                **F**RENCH
+    **W**HERE               **W**AITERS
+    **G**ROUP BY            **G**ROW
+    **H**AVING              **H**EALTHY
+    **O**RDER BY            **O**RANGES
+    </pre>
 
 ## SQL Query order of execution
 
