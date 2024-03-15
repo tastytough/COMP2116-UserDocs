@@ -7,16 +7,35 @@ nav:
   - Select Statements: 'Task3Emmy.md'
   - Glossary: 'GlossarySB.md'
   - Troubleshooting: 'TroubleshootingSB.md'
+
 markdown_extensions:
-- admonition
-- pymdownx.details
-- pymdownx.superfences
-- tables
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - pymdownx.emoji:
+        emoji_index: !!python/name:material.extensions.emoji.twemoji 
+        emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+
 theme:
   name: material
   features:
     - navigation.tracking
     - toc.integrate
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - content.tabs.link
   palette:
 
     # Palette toggle for light mode
@@ -32,3 +51,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+
+extra-css:
+  - stylesheets/extra.css
+
+copyright: |
+  &copy; 2024 <a href="https://github.com/tastytough" target="_blank" rel="noopener">Angus Ng, Ademi, Emmy Nguyen</a>

@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome! This documentation will guide you to use MySQL Workbench and help you with initial setups to execute simple tables in databases.
+Welcome! :wave: This documentation will guide you to use MySQL Workbench and help you with initial setups to execute simple tables in databases.
 
 >
 MySQL Workbench is a visual database design tool that integrates SQL development, administration, database design, creation and maintenance into a single integrated development environment for the MySQL database system. 
@@ -58,6 +58,9 @@ This documentation is intended for:
     example text
 
 !!! warning
+    example text
+
+!!! success
     example text
 
 ## Goal of Documentation
