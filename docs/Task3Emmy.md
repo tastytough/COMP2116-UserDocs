@@ -50,11 +50,27 @@ In SQL, the order you write the code isn't the same as how it executes. So, to u
 
 ![SQL Execution Order](/assets/sqlExecutionOrder.png){ width="500" }
 
+| What the query looks like |            How it's executed            |                     Why it works this way                             |
+| --------------------------|-----------------------------------------|-----------------------------------------------------------------------|
+| `SELECT`                  | :material-arrow-right-circle: `FROM`    |:material-arrow-right-circle: SQL starts with which table              |
+|                           |                                         |                your query is taking data from                         |
+| `FROM`                    | :material-arrow-right-circle: `WHERE`   |:material-arrow-right-circle: This is how SQL filters on rows          |
+| `WHERE`                   | :material-arrow-right-circle: `GROUP BY`|:material-arrow-right-circle: This is where your SQL query             |
+|                           |                                         |                checks if you have an aggregation                      |
+| `GROUP BY`                | :material-arrow-right-circle: `HAVING`  |:material-arrow-right-circle: `HAVING` requires a `GROUP BY` statement |
+| `HAVING`                  | :material-arrow-right-circle: `SELECT`  |:material-arrow-right-circle: Only after all these calculations        |
+|                           |                                         |                have made will SQL `SELECT` which                      |
+|                           |                                         |                columns you want to see returned.                      |   
+| `ORDER BY`                | :material-arrow-right-circle: `ORDER BY`|:material-arrow-right-circle: This sorts the data returned.            |
+| `LIMIT`                   | :material-arrow-right-circle: `LIMIT`   |:material-arrow-right-circle: Lastly, you can limit the number         |
+|                           |                                         |                of rows returned.                                      |
+ 
+
 ## Examples of using SELECT statement
 
 Let's explore some simpliest SELECT statements!
 
-1. SELECT *
+* **SELECT (*)**
 
     `SELECT` used with an asterisk `(*)` will return all rows and all columns from the table we're quering
 
@@ -74,7 +90,7 @@ Let's explore some simpliest SELECT statements!
 
     ![SELECT ALL](/assets/selectAll.png){ width="500" }
 
-2. FROM
+* **FROM**
 
     Show all rows and **some** columns from a single table
 
@@ -115,7 +131,7 @@ Let's explore some simpliest SELECT statements!
 
     ![SELECT CONCAT](/assets/selectConcat.png){ width="500" }
 
-3. ORDER BY
+* **ORDER BY**
 
     Display all rows from a single table in a specific sequence. You can indicate the sorting arrangement using the `ORDER BY` clause.
 
@@ -161,7 +177,7 @@ Let's explore some simpliest SELECT statements!
 
     ![SELECT ORDER BY multiple columns](/assets/selectOrderMulti.png){ width="500" }
 
-4. WHERE
+* **WHERE**
 
     Using `WHERE` clause to filter the rows from a table based on specified condition.
 
@@ -219,7 +235,7 @@ Let's explore some simpliest SELECT statements!
             IS NULL
             IS NOT NULL
 
-5. GROUP BY
+* **GROUP BY**
 
     We use `GROUP BY` clause to group rows with the same value. This clause is usually used with [aggregate functions](https://www.w3schools.com/sql/sql_aggregate_functions.asp#:~:text=An%20aggregate%20function%20is%20a,clause%20of%20the%20SELECT%20statement.).
 
@@ -243,7 +259,7 @@ Let's explore some simpliest SELECT statements!
 
     ![SELECT GROUP BY](/assets/selectGroupby.png){ width="500" }
 
-6. HAVING
+* **HAVING**
 
     The `HAVING` clause in SQL is used to filter the results of grouped data based on specified conditions. It's often used after the `GROUP BY` clause to apply conditions to the groups created by `GROUP BY`. Specifically, `HAVING` is used to filter groups based on aggregate values, such as `SUM`, `COUNT`, `AVG`, `MAX`, `MIN`, etc.
 
