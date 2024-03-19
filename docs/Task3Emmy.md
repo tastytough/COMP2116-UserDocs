@@ -4,25 +4,25 @@
 
 It includes [five(5) main sets of SQL commands](https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/) which are using frequently in MySQL:
 
-1. Data Definition Language(DDL)
+* Data Definition Language(DDL)
     * CREATE
     * ALTER
     * DROP
     
-2. Data Query Language (DQL)
+* Data Query Language (DQL)
     * SELECT
 
-3. Data Manipulation Language (DML)
+* Data Manipulation Language (DML)
     * INSERT
     * UPDATE
     * DELETE
 
-4. Data Control Language (DCL)
+* Data Control Language (DCL)
     * CREATE USER
     * GRANT
     * REVOKE
 
-5. Transaction Control Language (TCL)
+* Transaction Control Language (TCL)
     * BEGIN
     * COMMIT
     * ROLLBACK
@@ -48,37 +48,57 @@ When writing a query, all clauses in the SELECT statement apart from SELECT itse
 ## SQL Query order of execution
 In SQL, the order you write the code isn't the same as how it executes. So, to understand how an SQL query works, it's important to know the right [SQL execution structure](https://matam-kirankumar.medium.com/sql-query-order-of-execution-37001da1462). Then, you can user certain keywords when writing the query. 
 
-![SQL Execution Order](/assets/sqlExecutionOrder.png){ width="500" }
 
-| What the query looks like |            How it's executed            |                     Why it works this way                             |
-| --------------------------|-----------------------------------------|-----------------------------------------------------------------------|
-| `SELECT`                  | :material-arrow-right-circle: `FROM`    |:material-arrow-right-circle: SQL starts with which table              |
-|                           |                                         |                your query is taking data from                         |
-| `FROM`                    | :material-arrow-right-circle: `WHERE`   |:material-arrow-right-circle: This is how SQL filters on rows          |
-| `WHERE`                   | :material-arrow-right-circle: `GROUP BY`|:material-arrow-right-circle: This is where your SQL query             |
-|                           |                                         |                checks if you have an aggregation                      |
-| `GROUP BY`                | :material-arrow-right-circle: `HAVING`  |:material-arrow-right-circle: `HAVING` requires a `GROUP BY` statement |
-| `HAVING`                  | :material-arrow-right-circle: `SELECT`  |:material-arrow-right-circle: Only after all these calculations        |
-|                           |                                         |                have made will SQL `SELECT` which                      |
-|                           |                                         |                columns you want to see returned.                      |   
-| `ORDER BY`                | :material-arrow-right-circle: `ORDER BY`|:material-arrow-right-circle: This sorts the data returned.            |
-| `LIMIT`                   | :material-arrow-right-circle: `LIMIT`   |:material-arrow-right-circle: Lastly, you can limit the number         |
-|                           |                                         |                of rows returned.                                      |
- 
 
-## Examples of using SELECT statement
+| What the query looks like |How it's executed            |    Why it works this way   |
+|------------------------|---------------------------|-------------------------------|
+| `SELECT` | :octicons-triangle-down-16: `FROM`    | SQL starts with which table your query is taking data from|
+| `FROM`  | :octicons-triangle-down-16: `WHERE`   | This is how SQL filters on rows.|
+| `WHERE`  | :octicons-triangle-down-16: `GROUP BY`| This is where your SQL query checks if you have an aggregation.|
+| `GROUP BY`  | :octicons-triangle-down-16: `HAVING`  | `HAVING` requires a `GROUP BY` statement. |
+| `HAVING`   | :octicons-triangle-down-16: `SELECT`  | Only after all these calculations have made will SQL `SELECT` which columns you want to see returned.|
+| `ORDER BY`  | :octicons-triangle-down-16: `ORDER BY`| This sorts the data returned.|
+| `LIMIT`    | :octicons-triangle-down-16: `LIMIT`   | Lastly, you can limit the number of rows returned.|
+|||_source: [SQL Query Order of Execution](https://matam-kirankumar.medium.com/sql-query-order-of-execution-37001da1462), Kiran Kumar, Medium(2022)_|
 
-Let's explore some simpliest SELECT statements!
+## Examples of using SELECT statements
 
-* **SELECT (*)**
+### Initial set up
+Before exploring the simpliest SELECT statements, you need to initally set up
 
-    `SELECT` used with an asterisk `(*)` will return all rows and all columns from the table we're quering
+1. Open MySQL Workbench
+
+2. Choose your MySQL database by **clicking** on the connection.
+
+    In my example, I choose my localhost `Local instance 3306`
+
+    ![Open MySQL](/assets/openMySQL.png){width="500"}
+
+    !!! note
+        The connection you choose is where you have the database
+
+3. Fill in your username and password to login your connection
+
+    ![Login MySQL Workbench](/assets/userPassword.png){width="500"}
+
+4. Choose the schema you want to work on by **right clicking** on the schema's name, **click**  [Set as Default Schema].
+
+    Another way to do that, **click** [File], **choose** [Open SQL Script], and type `USE` < schema's name > in query script.
+
+Now, you are all set to dive in SELECT statements in the following sections:
+
+
+### SELECT *
+
+`SELECT` used with an asterisk `(*)` will return all rows and all columns from the table we're quering
+
+1. Add the query below in SQL script:
 
     === "Query"
 
         ```sql linenums="1"
         SELECT * 
-        FROM <table>
+        FROM < table >
         ```
 
     === "Example"
@@ -88,11 +108,22 @@ Let's explore some simpliest SELECT statements!
         FROM customer;
         ```
 
+2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+
+!!! success
     ![SELECT ALL](/assets/selectAll.png){ width="500" }
 
-* **FROM**
+!!! note
+    * ![Lightning Bolt button](/assets/lightningBtn.png){width="20"}: Use this button when you want to run many queries at the same time.
 
-    Show all rows and **some** columns from a single table
+    * ![Lightning Bolt button with cursor](/assets/lightningBtnWithCursor.png){width="20"}: Use this button when you want to run ONLY ONE specific query.
+
+
+### FROM
+
+Using `FROM` will show all rows and **some** columns from a single table
+
+1. Add the query below in SQL script:
 
     === "Query"
 
@@ -108,9 +139,15 @@ Let's explore some simpliest SELECT statements!
         FROM vendor;
         ```
 
+2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+
+!!! success
     ![SELECT FROM](/assets/selectFrom.png){ width="500" }
 
-    Show all rows and **combine** some columns from a single table. You can set a name for this combined column using `CONCAT` and `AS` followed by a name (a.k.a an `alias`) enclosed in double quote `" "`.
+
+Show all rows and **combine** some columns from a single table. You can set a name for this combined column using `CONCAT` and `AS` followed by a name (a.k.a an `alias`) enclosed in double quote `" "`.
+
+1. Add the query below in SQL script:
 
     === "Query"
 
@@ -129,11 +166,16 @@ Let's explore some simpliest SELECT statements!
         FROM customer;
         ```
 
+2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+
+!!! success
     ![SELECT CONCAT](/assets/selectConcat.png){ width="500" }
 
-* **ORDER BY**
+### ORDER BY
 
-    Display all rows from a single table in a specific sequence. You can indicate the sorting arrangement using the `ORDER BY` clause.
+Display all rows from a single table in a specific sequence. You can indicate the sorting arrangement using the `ORDER BY` clause.
+
+1. Add the query below in SQL script:
 
     === "Query"
 
@@ -155,9 +197,14 @@ Let's explore some simpliest SELECT statements!
 
         1. :woman_raising_hand: The default order in the `ORDER BY` clause is __ascending__. You can choose to include the keyword ASC after the column name, but it's optional. Additionally, using `DESC` specifies __descending__ order.
 
+2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+
+!!! success
     ![SELECT ORDER BY](/assets/selectOrderDesc.png){ width="500" }
 
-    In the `ORDER BY` clause, you can specify multiple columns for sorting, and the order will proceed sequentially from the first column onward.
+In the `ORDER BY` clause, you can specify multiple columns for sorting, and the order will proceed sequentially from the first column onward.
+
+1. Add the query below in SQL script:
 
     === "Query"
 
@@ -175,11 +222,16 @@ Let's explore some simpliest SELECT statements!
         ORDER BY CUS_LNAME, CUS_FNAME;
         ```
 
+2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+
+!!! success
     ![SELECT ORDER BY multiple columns](/assets/selectOrderMulti.png){ width="500" }
 
-* **WHERE**
+### WHERE
 
-    Using `WHERE` clause to filter the rows from a table based on specified condition.
+Using `WHERE` clause to filter the rows from a table based on specified condition.
+
+1. Add the query below in SQL script:
 
     === "Query"
 
@@ -197,47 +249,29 @@ Let's explore some simpliest SELECT statements!
         WHERE CUS_FNAME = 'Anne' OR CUS_LNAME = 'Brown';
         ```
 
+2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+
+!!! success
     ![SELECT WHERE](/assets/selectWhere.png){ width="500" }
 
-    !!!note
 
-        Conditions can be expressed in various forms, including:
+!!!note
 
-        Comparison operators:
+    * [Conditions]((https://www.w3schools.com/mysql/mysql_operators.asp)) can be expressed in various forms:
+        * Comparison operators
+        * Logical operators
+        * Ranges
+        * Lists of values indicated by
+        * Pattern matching
 
-            = (equal to)
-            < (less than)
-            <= (less than or equal to)
-            > (greater than)
-            >= (greater than or equal to)
-            != (not equal to)
+    * [NULL values](https://www.w3schools.com/mysql/mysql_null_values.asp)
 
-        Logical operators:
 
-            AND (all conditions must be met)
-            OR (any condition can be met)
-            NOT (condition must not be met)
+### GROUP BY
 
-        Ranges:
+Using `GROUP BY` clause to group rows with the same value. This clause is usually used with [aggregate functions](https://www.w3schools.com/sql/sql_aggregate_functions.asp#:~:text=An%20aggregate%20function%20is%20a,clause%20of%20the%20SELECT%20statement.).
 
-            BETWEEN
-        
-        Lists of values indicated by:
-
-            IN
-        
-        Pattern matching:
-
-            LIKE
-        
-        Handling NULL values:
-
-            IS NULL
-            IS NOT NULL
-
-* **GROUP BY**
-
-    We use `GROUP BY` clause to group rows with the same value. This clause is usually used with [aggregate functions](https://www.w3schools.com/sql/sql_aggregate_functions.asp#:~:text=An%20aggregate%20function%20is%20a,clause%20of%20the%20SELECT%20statement.).
+1. Add the query below in SQL script:
 
     === "Query"
 
@@ -257,11 +291,16 @@ Let's explore some simpliest SELECT statements!
         GROUP BY V_STATE;
         ```
 
+2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+
+!!! success
     ![SELECT GROUP BY](/assets/selectGroupby.png){ width="500" }
 
-* **HAVING**
+### HAVING
 
-    The `HAVING` clause in SQL is used to filter the results of grouped data based on specified conditions. It's often used after the `GROUP BY` clause to apply conditions to the groups created by `GROUP BY`. Specifically, `HAVING` is used to filter groups based on aggregate values, such as `SUM`, `COUNT`, `AVG`, `MAX`, `MIN`, etc.
+Using `HAVING` clause in SQL to filter the results of grouped data based on specified conditions. It's often used after the `GROUP BY` clause to apply conditions to the groups created by `GROUP BY`. Specifically, `HAVING` is used to filter groups based on aggregate values, such as `SUM`, `COUNT`, `AVG`, `MAX`, `MIN`, etc.
+
+1. Add the query below in SQL script:
 
     === "Query"
 
@@ -283,25 +322,28 @@ Let's explore some simpliest SELECT statements!
         HAVING COUNT(*) >= 2;
         ```
 
+2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+
+!!! success
     ![SELECT HAVING](/assets/selectHaving.png){ width="500" }
 
-!!! success 
+!!! success "Congratulation :clap:"
     Now that you're familiar with the simplest SELECT statements in MySQL, you can further practice and enhance your skills by exploring the following resources:
 
     * [SQL Bolt](https://sqlbolt.com/)
     * [SQL Zoo](https://sqlzoo.net/wiki/SQL_Tutorial)
     * [SQL Practice](https://www.sql-practice.com/)
 
-    Happy practicing! :clap:
+    Happy practicing! :wink:
 
 ## Conclusion
 
 By going through this section, you will achieve the following:
 
 * Getting acknowledgement about 5 sets of SQL commands
-* Understanding and proficiency in writing the simplest SELECT statement
+* Understanding and proficiency in writing the simplest SELECT statements
 
-Great work! :heart: If you encounter any issues while running MySQL queries, be sure to check out the next section for assistance.
+Great work! :heart: If you encounter any issues while running MySQL queries, be sure to check out the next section for assistance:
 
 
 

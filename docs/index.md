@@ -47,7 +47,11 @@ Here's a summary of the main sections covered in the documentation:
 
     E.g **Right click** on [Table], **click** [Create Table] to create a new table in `test-constrainst-e-nguyen schema`.
 
-3. Some queries have a clickable `+` button to show more explanation for these queries:
+3. When you see < angle brackets  >, it should be replaced by your table name or your schema's name.
+
+4. When you see { curly brackets }, it defines the list of columns
+
+5. Some queries have a clickable `+` button to show more explanation for these queries:
 
     ``` sql linenums="1"
     SELECT P_CODE, P_DESCRIPT, P_PRICE
@@ -57,7 +61,7 @@ Here's a summary of the main sections covered in the documentation:
 
     1. :woman_raising_hand: The default order in the `ORDER BY` clause is __ascending__. You can choose to include the keyword ASC after the column name, but it's optional. Additionally, using `DESC` specifies __descending__ order.
 
-4. Some queries have a highlight line to show a modified code compared with the previous one to let you know the changes:
+6. Some queries have a highlight line to show a modified code compared with the previous one to let you know the changes:
     
     ``` sql linenums="1" hl_lines="3"
     SELECT V_STATE, COUNT(*) AS 'Count by State'
@@ -65,7 +69,7 @@ Here's a summary of the main sections covered in the documentation:
     GROUP BY V_STATE;
     ```
 
-5. Each example will include a content tab with the query structure and a real-life example:
+7. Each example will include a content tab with the query structure and a real-life example:
 === "Query"
 
     ``` sql linenums="1" hl_lines="3"
@@ -82,7 +86,9 @@ Here's a summary of the main sections covered in the documentation:
     ORDER BY CUS_LNAME, CUS_FNAME;
     ``` 
 
-6. File names, schemas, tables are shown as a same format: `test-constrainst-e-nguyen` 
+
+8. File names, schemas, tables are shown as a same format: `test-constrainst-e-nguyen` 
+
 
 ## Notes and Warning Messages
 !!! info
