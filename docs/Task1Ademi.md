@@ -132,7 +132,7 @@ The goal of this section is to serve as a detailed guide for installing MySQL 8 
 
     !!! note The MySQL Workbench interface is consistent across both Windows and Mac platforms, therefore, this documentation will not differentiate between the two.
 
-    If you don't have any connections under MySQL Connections, you can create a new one by **clicking** on ![plus button](./assets/plusButton.png) button
+    If you don't have any connections under MySQL Connections, you can create a new one by **clicking** on ![plus button](./assets/plusButton.png){width="20"} button
 
     **Enter** a connection name and leave all defaults. **Click** Ok
 
@@ -147,14 +147,14 @@ The goal of this section is to serve as a detailed guide for installing MySQL 8 
     The MySQL Workbench interface features four primary areas:
 
     - The Schema (or Database) Section, located at the right, displays all the databases, tables, views, procedures, and functions.
-    - At the top, the Query Section is where queries are entered or SQL files are opened. The lightning bolt icon with cursor ![Lightning Bolt button with cursor](./assets/lightningbutton.png) allows for the execution of individual queries.
+    - At the top, the Query Section is where queries are entered or SQL files are opened. The lightning bolt icon with cursor ![Lightning Bolt button with cursor](./assets/lightningbutton.png){width="20"} allows for the execution of individual queries.
     - Results from executed queries, such as SELECT or SHOW TABLES commands, are shown in the Result Grid directly below the Query Section.
     - Additional information about executed queries is found in the Output Section, including the number of rows returned, execution time, or errors, along with hints for correcting syntax issues.
 
 3.  Practice Time!
     In the Query type the following command:
     `SHOW VARIABLES LIKE 'version';`
-    and **click** ![Lightning Bolt button with cursor](./assets/lightningbutton.png).
+    and **click** ![Lightning Bolt button with cursor](./assets/lightningbutton.png){width="20"}.
 
     !!! info The MYSQL keywords are **case insensitive**, so
     you can type it both lowercase and uppercase (ex. show variables like 'version';).
