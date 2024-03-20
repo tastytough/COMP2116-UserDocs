@@ -27,7 +27,7 @@ It includes [five(5) main sets of SQL commands](https://www.geeksforgeeks.org/sq
     * COMMIT
     * ROLLBACK
 
-The goal of this section is walk you through a basic instruction of using SELECT command in Data Query Language of MySQL to retrieve data from databases. 
+The goal of this section is walk you through a basic instruction of using SELECT commands in Data Query Language of MySQL to retrieve data from databases. 
 
 ## Basic structure of SELECT statement
 
@@ -70,7 +70,7 @@ Before exploring the simpliest SELECT statements, you need to initally set up
 
 2. Choose your MySQL database by **clicking** on the connection.
 
-    In my example, I choose my localhost `Local instance 3306`
+    In the example, it is localhost `Local instance 3306`
 
     ![Open MySQL](/assets/openMySQL.png){width="500"}
 
@@ -90,9 +90,9 @@ Now, you are all set to dive in SELECT statements in the following sections:
 
 ### SELECT *
 
-`SELECT` used with an asterisk `(*)` will return all rows and all columns from the table we're quering
+`SELECT` used with an asterisk `(*)` will return all rows and all columns from the table we're quering.
 
-1. Add the query below in SQL script:
+1. Add the query example below in SQL script. Replace `customer` with your table's name:
 
     === "Query"
 
@@ -114,16 +114,16 @@ Now, you are all set to dive in SELECT statements in the following sections:
     ![SELECT ALL](/assets/selectAll.png){ width="500" }
 
 !!! note
-    * ![Lightning Bolt button](/assets/lightningBtn.png){width="20"}: Use this button when you want to run many queries at the same time.
+    * ![Lightning Bolt button](/assets/lightningBtn.png){width="20"}: Use this button when you want to run all queries at the same time.
 
-    * ![Lightning Bolt button with cursor](/assets/lightningBtnWithCursor.png){width="20"}: Use this button when you want to run ONLY ONE specific query.
+    * ![Lightning Bolt button with cursor](/assets/lightningBtnWithCursor.png){width="20"}: Use this button when you want to run ONLY ONE specific query. To use it, you need to place your cursor at the query you want to run and click the button.
 
 
 ### FROM
 
 Using `FROM` will show all rows and **some** columns from a single table
 
-1. Add the query below in SQL script:
+1. Add the query example below in SQL script. Replace `vendor` with your table's name, `v_name`, `v_areacode`, `v_phone`, `v_state` with your column's names:
 
     === "Query"
 
@@ -145,9 +145,9 @@ Using `FROM` will show all rows and **some** columns from a single table
     ![SELECT FROM](/assets/selectFrom.png){ width="500" }
 
 
-Show all rows and **combine** some columns from a single table. You can set a name for this combined column using `CONCAT` and `AS` followed by a name (a.k.a an `alias`) enclosed in double quote `" "`.
+To show all rows and **combine** some columns from a single table, you can set a name for this combined column using `CONCAT` and `AS` followed by a name (as known as an `alias`) enclosed in double quote `" "`.
 
-1. Add the query below in SQL script:
+1. Add the query example below in SQL script. Replace `customer` with your table's name, `CUS_LNAME`, `CUS_FNAME`, `CUS_AREACODE`, `CUS_PHONE` with your column's names:
 
     === "Query"
 
@@ -175,7 +175,7 @@ Show all rows and **combine** some columns from a single table. You can set a na
 
 Display all rows from a single table in a specific sequence. You can indicate the sorting arrangement using the `ORDER BY` clause.
 
-1. Add the query below in SQL script:
+1. Add the query example below in SQL script. Replace `PRODUCT` with your table's name, `P_CODE`, `P_DESCRIPT`, `P_PRICE` with your column's names:
 
     === "Query"
 
@@ -204,7 +204,7 @@ Display all rows from a single table in a specific sequence. You can indicate th
 
 In the `ORDER BY` clause, you can specify multiple columns for sorting, and the order will proceed sequentially from the first column onward.
 
-1. Add the query below in SQL script:
+1. Add the query example below in SQL script. Replace `CUSTOMER` with your table's name, `CUS_LNAME`, `CUS_FNAME`, `CUS_INITIAL` with your column's names:
 
     === "Query"
 
@@ -231,7 +231,7 @@ In the `ORDER BY` clause, you can specify multiple columns for sorting, and the 
 
 Using `WHERE` clause to filter the rows from a table based on specified condition.
 
-1. Add the query below in SQL script:
+1. Add the query example below in SQL script. Replace `CUSTOMER` with your table's name, `CUS_CODE`, `CUS_LNAME`, `CUS_FNAME`, `CUS_AREACODE`, `CUS_PHONE` with your column's names:
 
     === "Query"
 
@@ -271,7 +271,7 @@ Using `WHERE` clause to filter the rows from a table based on specified conditio
 
 Using `GROUP BY` clause to group rows with the same value. This clause is usually used with [aggregate functions](https://www.w3schools.com/sql/sql_aggregate_functions.asp#:~:text=An%20aggregate%20function%20is%20a,clause%20of%20the%20SELECT%20statement.).
 
-1. Add the query below in SQL script:
+1. Add the query example below in SQL script. Replace `VENDOR` with your table's name, `V_STATE` with your column's name:
 
     === "Query"
 
@@ -300,7 +300,7 @@ Using `GROUP BY` clause to group rows with the same value. This clause is usuall
 
 Using `HAVING` clause in SQL to filter the results of grouped data based on specified conditions. It's often used after the `GROUP BY` clause to apply conditions to the groups created by `GROUP BY`. Specifically, `HAVING` is used to filter groups based on aggregate values, such as `SUM`, `COUNT`, `AVG`, `MAX`, `MIN`, etc.
 
-1. Add the query below in SQL script:
+1. Add the query example below in SQL script. Replace `employee` with your table's name, `EMP_LNAME`, with your column's name:
 
     === "Query"
 
