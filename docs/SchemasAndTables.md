@@ -135,4 +135,4 @@ By completing this section, you will have learned the following:
 * How to create a table in a schema.
 * How to add data to a table.
 
-Great work! :heart: To learn more about MySQL queries, be sure to check out the next section on [SELECT statements](./Task3Emmy.md).
+Great work! :heart: To learn more about MySQL queries, be sure to check out the next section on [SELECT statements](./SelectStatements.md).

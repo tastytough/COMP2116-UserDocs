@@ -1,11 +1,11 @@
 site_name: MySQL 8.0 User Documentation
 nav: 
-  - Home: 'index.md'
-  - Installing MySQL: 'Task1Ademi.md'
-  - Schemas and Tables: 'Task2Angus.md'
-  - SELECT Statements: 'Task3Emmy.md'
-  - Glossary: 'GlossarySB.md'
-  - Troubleshooting: 'TroubleshootingSB.md'
+  - Home: 'Index.md'
+  - Installing MySQL: 'InstallingMySQL.md'
+  - Schemas and Tables: 'SchemasAndTables.md'
+  - SELECT Statements: 'SelectStatements.md'
+  - Glossary: 'Glossary.md'
+  - Troubleshooting: 'Troubleshooting.md'
 
 markdown_extensions:
   - admonition

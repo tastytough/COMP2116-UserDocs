@@ -176,4 +176,4 @@ By the end of this section, you will have successfully learned the following:
 - How to connect to MySQL using the MySQL Workbench.
 - How to run queries in MySQL Workbench.
 
-Great work! :heart: To deepen your understanding of MySQL queries, schemas, data types, and tables, make sure to explore [the following section](./Task2Angus.md).
+Great work! :heart: To deepen your understanding of MySQL queries, schemas, data types, and tables, make sure to explore [Schemas and Tables](./SchemasAndTables.md).
