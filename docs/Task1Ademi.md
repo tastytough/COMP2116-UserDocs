@@ -47,10 +47,12 @@ The goal of this section is to serve as a detailed guide for installing MySQL 8 
 
     - Group Replication
       **Click** Standalone
+
       ![Clicking on Standalone at Group Replication](./assets/GroupReplication.png){width="500"}
 
     - Type and Networking
       **Choose** Development Computer for Config Type, **click** Show Advanced Options, **keep** all other defaults
+
       ![Type and Networking settings](./assets/TypeandNetworking.png){width="500"}
 
     - Authentication method
@@ -106,11 +108,12 @@ The goal of this section is to serve as a detailed guide for installing MySQL 8 
 
 3. Follow the steps in the MySQL Community Installation Wizard, agreeing to the License Agreement, leaving the default install directory and selecting Strong Password Encryption when prompted.
 
-   ![Choosing Strong Password Encryption](./assets/MySQLMacWizard.png){width="500"}
+   ![Choosing Strong Password Encryption](./assets/MySQLMacWizard.png) {width="500"}
 
    Create a new password for your MySQL root account and remember it, as it will be needed for login.
    Confirm the successful installation by **clicking** Close at the completion screen.
-   ![Confirmation for installing MySQL Server](./assets/completedInstallationMac.png){width="500"}
+
+   ![Confirmation for installing MySQL Server](./assets/completedInstallationMac.png) {width="500"}
 
 4. Go to [MySQL's official website](https://dev.mysql.com/downloads/workbench/) to install MySQL Workbench. **Download** the same package as you did for Community Server, and open it.
    Drag the MySQL Workbench icon to the Applications folder to install. Launch MySQL Workbench from the Applications folder.
@@ -128,39 +131,42 @@ The goal of this section is to serve as a detailed guide for installing MySQL 8 
 
 1.  Open MySQL Workbench
     It will look like this when you open it:
-    ![MySQL Workbench](./assets/MySQLWorkbench.png){width="500"}
+
+    ![MySQL Workbench](./assets/MySQLWorkbench.png) {width="500"}
 
     !!! note The MySQL Workbench interface is consistent across both Windows and Mac platforms, therefore, this documentation will not differentiate between the two.
 
-    If you don't have any connections under MySQL Connections, you can create a new one by **clicking** on ![plus button](./assets/plusButton.png){width="20"} button
+    If you don't have any connections under MySQL Connections, you can create a new one by **clicking** on ![plus button](./assets/plusButton.png) {width="20"} button
 
     **Enter** a connection name and leave all defaults. **Click** Ok
 
-    ![Creating a new connection](./assets/newConnection.png){width="500"}
+    ![Creating a new connection](./assets/newConnection.png) {width="500"}
 
     !!! tips You can click on Test Connection button before pressing Ok to see if it works. It will ask for your root password.
 
 2.  Open your connection by **double clicking** on it and enter your root password.
     Once open it will look like this
-    ![MySQL Workbench](./assets/Workbench.png){width="500"}
+
+    ![MySQL Workbench](./assets/Workbench.png) {width="500"}
 
     The MySQL Workbench interface features four primary areas:
 
     - The Schema (or Database) Section, located at the right, displays all the databases, tables, views, procedures, and functions.
-    - At the top, the Query Section is where queries are entered or SQL files are opened. The lightning bolt icon with cursor ![Lightning Bolt button with cursor](./assets/lightningbutton.png){width="20"} allows for the execution of individual queries.
+    - At the top, the Query Section is where queries are entered or SQL files are opened. The lightning bolt icon with cursor ![Lightning Bolt button with cursor](./assets/lightningbutton.png) {width="20"} allows for the execution of individual queries.
     - Results from executed queries, such as SELECT or SHOW TABLES commands, are shown in the Result Grid directly below the Query Section.
     - Additional information about executed queries is found in the Output Section, including the number of rows returned, execution time, or errors, along with hints for correcting syntax issues.
 
 3.  Practice Time!
     In the Query type the following command:
     `SHOW VARIABLES LIKE 'version';`
-    and **click** ![Lightning Bolt button with cursor](./assets/lightningbutton.png){width="20"}.
+    and **click** ![Lightning Bolt button with cursor](./assets/lightningbutton.png) {width="20"}.
 
     !!! info The MYSQL keywords are **case insensitive**, so
     you can type it both lowercase and uppercase (ex. show variables like 'version';).
 
     !!! success The result should look like this:
-    ![Query result](./assets/ShowVersion.png){width="500"}
+
+    ![Query result](./assets/ShowVersion.png) {width="500"}
 
 ## Conclusion
 
