@@ -26,7 +26,7 @@ This documentation is intended for:
 - [MySQL Workbench 8.0](https://dev.mysql.com/downloads/installer/)
 
 !!! info
-MySQL Workbench and Server can be found in the same installation wizard
+    MySQL Workbench and Server can be found in the same installation wizard
 
 ## Procedures Overview
 
@@ -90,19 +90,19 @@ Here's a summary of the main sections covered in the documentation:
 ## Notes and Warning Messages
 
 !!! note
-Indicates important information.
+    Indicates important information.
 
 !!! info
-Indicates additional information.
+    Indicates additional information.
 
 !!! tips
-Some helpful tips to enhance your understanding.
+    Some helpful tips to enhance your understanding.
 
 !!! warning
-Some content need to read carefully before proceeding.
+    Some content need to read carefully before proceeding.
 
 !!! success
-Indicates successful results.
+    Indicates successful results.
 
 ## Objective of Documentation
 
