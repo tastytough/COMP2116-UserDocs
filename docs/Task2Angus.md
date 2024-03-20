@@ -120,7 +120,7 @@ In this section, you will learn how to create a schema, and add a table to a sch
     You will be asked to review the SQL statement that inserts your data into your table:
     ![Review insert statement](assets/reviewInsert.png)
 
-5. **Click** on apply after confirming that the data is correct to add it to your table!
+5. **Click** on apply after confirming that the data is correct to add it to your table.
 
 !!! success
     ![table with data](assets/tableWithData.png)
