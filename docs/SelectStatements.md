@@ -59,11 +59,11 @@ In SQL, the order you write the code isn't the same as how it executes. So, to u
 | `HAVING`   | :octicons-triangle-down-16: `SELECT`  | Only after all these calculations have made will SQL `SELECT` which columns you want to see returned.|
 | `ORDER BY`  | :octicons-triangle-down-16: `ORDER BY`| This sorts the data returned.|
 | `LIMIT`    | :octicons-triangle-down-16: `LIMIT`   | Lastly, you can limit the number of rows returned.|
-|||_source: [SQL Query Order of Execution](https://matam-kirankumar.medium.com/sql-query-order-of-execution-37001da1462), Kiran Kumar, Medium(2022)_|
+|||source: Kumar, K. (2022, September 5). [SQL Query Order of Execution](https://matam-kirankumar.medium.com/sql-query-order-of-execution-37001da1462), Medium(2022)|
 
 ## Examples of using SELECT statements
 
-### Initial set up
+### Initial setup
 Before exploring the simpliest SELECT statements, you need to initally set up
 
 1. Open MySQL Workbench
@@ -72,14 +72,14 @@ Before exploring the simpliest SELECT statements, you need to initally set up
 
     In the example, it is localhost `Local instance 3306`
 
-    ![Open MySQL](/assets/openMySQL.png){width="500"}
+    ![Open MySQL](./assets/openMySQL.png){width="500"}
 
     !!! note
         The connection you choose is where you have the database
 
 3. Fill in your username and password to login your connection
 
-    ![Login MySQL Workbench](/assets/userPassword.png){width="500"}
+    ![Login MySQL Workbench](./assets/userPassword.png){width="500"}
 
 4. Choose the schema you want to work on by **right clicking** on the schema's name, **click**  [Set as Default Schema].
 
@@ -108,15 +108,15 @@ Now, you are all set to dive in SELECT statements in the following sections:
         FROM customer;
         ```
 
-2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+2. **Click** ![Lightning Button](./assets/lightningBtn.png){width="20"} to run the query:
 
 !!! success
-    ![SELECT ALL](/assets/selectAll.png){ width="500" }
+    ![SELECT ALL](./assets/selectAll.png){ width="500" }
 
 !!! note
-    * ![Lightning Bolt button](/assets/lightningBtn.png){width="20"}: Use this button when you want to run all queries at the same time.
+    * ![Lightning Bolt button](./assets/lightningBtn.png){width="20"}: Use this button when you want to run all queries at the same time.
 
-    * ![Lightning Bolt button with cursor](/assets/lightningBtnWithCursor.png){width="20"}: Use this button when you want to run ONLY ONE specific query. To use it, you need to place your cursor at the query you want to run and click the button.
+    * ![Lightning Bolt button with cursor](./assets/lightningBtnWithCursor.png){width="20"}: Use this button when you want to run ONLY ONE specific query. To use it, you need to place your cursor at the query you want to run and click the button.
 
 
 ### FROM
@@ -139,10 +139,10 @@ Using `FROM` will show all rows and **some** columns from a single table
         FROM vendor;
         ```
 
-2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+2. **Click** ![Lightning Button](./assets/lightningBtn.png){width="20"} to run the query:
 
 !!! success
-    ![SELECT FROM](/assets/selectFrom.png){ width="500" }
+    ![SELECT FROM](./assets/selectFrom.png){ width="500" }
 
 
 To show all rows and **combine** some columns from a single table, you can set a name for this combined column using `CONCAT` and `AS` followed by a name (as known as an `alias`) enclosed in double quote `" "`.
@@ -166,10 +166,10 @@ To show all rows and **combine** some columns from a single table, you can set a
         FROM customer;
         ```
 
-2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+2. **Click** ![Lightning Button](./assets/lightningBtn.png){width="20"} to run the query:
 
 !!! success
-    ![SELECT CONCAT](/assets/selectConcat.png){ width="500" }
+    ![SELECT CONCAT](./assets/selectConcat.png){ width="500" }
 
 ### ORDER BY
 
@@ -197,10 +197,10 @@ Display all rows from a single table in a specific sequence. You can indicate th
 
         1. :woman_raising_hand: The default order in the `ORDER BY` clause is __ascending__. You can choose to include the keyword ASC after the column name, but it's optional. Additionally, using `DESC` specifies __descending__ order.
 
-2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+2. **Click** ![Lightning Button](./assets/lightningBtn.png){width="20"} to run the query:
 
 !!! success
-    ![SELECT ORDER BY](/assets/selectOrderDesc.png){ width="500" }
+    ![SELECT ORDER BY](./assets/selectOrderDesc.png){ width="500" }
 
 In the `ORDER BY` clause, you can specify multiple columns for sorting, and the order will proceed sequentially from the first column onward.
 
@@ -222,10 +222,10 @@ In the `ORDER BY` clause, you can specify multiple columns for sorting, and the 
         ORDER BY CUS_LNAME, CUS_FNAME;
         ```
 
-2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+2. **Click** ![Lightning Button](./assets/lightningBtn.png){width="20"} to run the query:
 
 !!! success
-    ![SELECT ORDER BY multiple columns](/assets/selectOrderMulti.png){ width="500" }
+    ![SELECT ORDER BY multiple columns](./assets/selectOrderMulti.png){ width="500" }
 
 ### WHERE
 
@@ -249,10 +249,10 @@ Using `WHERE` clause to filter the rows from a table based on specified conditio
         WHERE CUS_FNAME = 'Anne' OR CUS_LNAME = 'Brown';
         ```
 
-2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+2. **Click** ![Lightning Button](./assets/lightningBtn.png){width="20"} to run the query:
 
 !!! success
-    ![SELECT WHERE](/assets/selectWhere.png){ width="500" }
+    ![SELECT WHERE](./assets/selectWhere.png){ width="500" }
 
 
 !!!note
@@ -291,10 +291,10 @@ Using `GROUP BY` clause to group rows with the same value. This clause is usuall
         GROUP BY V_STATE;
         ```
 
-2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+2. **Click** ![Lightning Button](./assets/lightningBtn.png){width="20"} to run the query:
 
 !!! success
-    ![SELECT GROUP BY](/assets/selectGroupby.png){ width="500" }
+    ![SELECT GROUP BY](./assets/selectGroupBy.png){ width="500" }
 
 ### HAVING
 
@@ -322,10 +322,10 @@ Using `HAVING` clause in SQL to filter the results of grouped data based on spec
         HAVING COUNT(*) >= 2;
         ```
 
-2. **Click** ![Lightning Button](/assets/lightningBtn.png){width="20"} to run the query:
+2. **Click** ![Lightning Button](./assets/lightningBtn.png){width="20"} to run the query:
 
 !!! success
-    ![SELECT HAVING](/assets/selectHaving.png){ width="500" }
+    ![SELECT HAVING](./assets/selectHaving.png){ width="500" }
 
 !!! success "Congratulation :clap:"
     Now that you're familiar with the simplest SELECT statements in MySQL, you can further practice and enhance your skills by exploring the following resources:
@@ -343,7 +343,7 @@ By going through this section, you will achieve the following:
 * Getting acknowledgement about 5 sets of SQL commands
 * Understanding and proficiency in writing the simplest SELECT statements
 
-Great work! :heart: If you encounter any issues while running MySQL queries, be sure to check out the next section for assistance:
+Great work! :heart: If you encounter any issues while running MySQL queries, be sure to check out the next section for assistance: [Troubleshooting](./Troubleshooting.md)
 
 
 

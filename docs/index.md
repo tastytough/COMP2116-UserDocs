@@ -2,7 +2,7 @@
 
 Welcome! :wave: This guide aims to familiaze you with the essential concept of working with databases, including understanding data types, creating schemas and tables, setting up MySQL Workbench, and executing simple SELECT statements. This documentation will provide you with the basic knowledge to get started with MySQL in general and MySQL WorkBench in details.
 
-> ![MySQL logo](/assets/mysql-logo-2.png){ width="50" } [**MySQL Workbench**](https://www.mysql.com/products/workbench/) is a visual database design tool that integrates SQL development, administration, database design, creation and maintenance into a single integrated development environment for the [MySQL](https://www.mysql.com/) database system.
+> ![MySQL logo](./assets/mysql-logo-2.png){ width="50" } [**MySQL Workbench**](https://www.mysql.com/products/workbench/) is a visual database design tool that integrates SQL development, administration, database design, creation and maintenance into a single integrated development environment for the [MySQL](https://www.mysql.com/) database system.
 
 ## Intended Users
 
@@ -26,15 +26,15 @@ This documentation is intended for:
 - [MySQL Workbench 8.0](https://dev.mysql.com/downloads/installer/)
 
 !!! info
-MySQL Workbench and Server can be found in the same installation wizard
+    MySQL Workbench and Server can be found in the same installation wizard
 
 ## Procedures Overview
 
 Here's a summary of the main sections covered in the documentation:
 
-- ABC
-- BCD
-- XYZ
+- [Installing MySQL](./InstallingMySQL.md)
+- [Schemas and Tables](./SchemasAndTables.md)
+- [Select Statements](./SelectStatements.md)
 
 ## Typographical Conventions
 
@@ -69,13 +69,13 @@ Here's a summary of the main sections covered in the documentation:
     ```
 
 7.  Each example will include a content tab with the query structure and a real-life example:
-    === "Query"
+=== "Query"
 
-            ``` sql linenums="1" hl_lines="3"
-            SELECT { * | column1, column2 }
-            FROM <table>
-            ORDER BY { columnA, columnB };
-            ```
+    ``` sql linenums="1" hl_lines="3"
+    SELECT { * | column1, column2 }
+    FROM <table>
+    ORDER BY { columnA, columnB };
+    ```
 
 === "Example"
 
@@ -90,19 +90,19 @@ Here's a summary of the main sections covered in the documentation:
 ## Notes and Warning Messages
 
 !!! note
-Indicates important information.
+    Indicates important information.
 
 !!! info
-Indicates additional information.
+    Indicates additional information.
 
 !!! tips
-Some helpful tips to enhance your understanding.
+    Some helpful tips to enhance your understanding.
 
 !!! warning
-Some content need to read carefully before proceeding.
+    Some content need to read carefully before proceeding.
 
 !!! success
-Indicates successful results.
+    Indicates successful results.
 
 ## Objective of Documentation
 

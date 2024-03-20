@@ -64,14 +64,14 @@ In this section, you will learn how to create a schema, and add a table to a sch
     A new panel should appear in the main area of the application. 
     
     Specify your table name, column names, column data types and column options.
-    
+
+    ![Creating a table](./assets/createTable.png)
+
     !!! tips 
         For more information on MySQL data types and column options visit:
 
         - [MySQL 8.0 Data Types](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
         - [MySQL 8.0 Create Table Options](https://dev.mysql.com/doc/refman/8.3/en/create-table.html#create-table-options)
-
-    ![Creating a table](./assets/createTable.png)
 
 4. **Click** on the apply button once you are ready to create your table.
     
@@ -135,4 +135,4 @@ By completing this section, you will have learned the following:
 * How to create a table in a schema.
 * How to add data to a table.
 
-Great work! :heart: To learn more about MySQL queries, be sure to check out the next section on [Select statements](./Task3Emmy.md).
+Great work! :heart: To learn more about MySQL queries, be sure to check out the next section on [SELECT statements](./SelectStatements.md).
