@@ -59,11 +59,11 @@ In SQL, the order you write the code isn't the same as how it executes. So, to u
 | `HAVING`   | :octicons-triangle-down-16: `SELECT`  | Only after all these calculations have made will SQL `SELECT` which columns you want to see returned.|
 | `ORDER BY`  | :octicons-triangle-down-16: `ORDER BY`| This sorts the data returned.|
 | `LIMIT`    | :octicons-triangle-down-16: `LIMIT`   | Lastly, you can limit the number of rows returned.|
-|||_source: _Kumar, K. (2022, September 5). [SQL Query Order of Execution](https://matam-kirankumar.medium.com/sql-query-order-of-execution-37001da1462), Kiran Kumar, Medium(2022). SQL Query Order of Execution: | by Kiran Kumar | Medium. Kiran Kumar. Retrieved March 20, 2024_|
+|||source: Kumar, K. (2022, September 5). [SQL Query Order of Execution](https://matam-kirankumar.medium.com/sql-query-order-of-execution-37001da1462), Medium(2022)|
 
 ## Examples of using SELECT statements
 
-### Initial set up
+### Initial setup
 Before exploring the simpliest SELECT statements, you need to initally set up
 
 1. Open MySQL Workbench
