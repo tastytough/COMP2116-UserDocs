@@ -1,8 +1,7 @@
 site_name: MySQL 8.0 User Documentation
 nav: 
   - Home: 'index.md'
-  - MySQL Data Types: 'Data_Types.md'
-  - 'Task1Ademi.md'
+  - Installing MySQL: 'Task1Ademi.md'
   - Schemas and Tables: 'Task2Angus.md'
   - Select Statements: 'Task3Emmy.md'
   - Glossary: 'GlossarySB.md'
