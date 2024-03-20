@@ -294,7 +294,7 @@ Using `GROUP BY` clause to group rows with the same value. This clause is usuall
 2. **Click** ![Lightning Button](./assets/lightningBtn.png){width="20"} to run the query:
 
 !!! success
-    ![SELECT GROUP BY](./assets/selectGroupby.png){ width="500" }
+    ![SELECT GROUP BY](./assets/selectGroupBy.png){ width="500" }
 
 ### HAVING
 

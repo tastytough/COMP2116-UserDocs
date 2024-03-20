@@ -2,7 +2,7 @@
 
 Welcome! :wave: This guide aims to familiaze you with the essential concept of working with databases, including understanding data types, creating schemas and tables, setting up MySQL Workbench, and executing simple SELECT statements. This documentation will provide you with the basic knowledge to get started with MySQL in general and MySQL WorkBench in details.
 
-> ![MySQL logo](/assets/mysql-logo-2.png){ width="50" } [**MySQL Workbench**](https://www.mysql.com/products/workbench/) is a visual database design tool that integrates SQL development, administration, database design, creation and maintenance into a single integrated development environment for the [MySQL](https://www.mysql.com/) database system.
+> ![MySQL logo](./assets/mysql-logo-2.png){ width="50" } [**MySQL Workbench**](https://www.mysql.com/products/workbench/) is a visual database design tool that integrates SQL development, administration, database design, creation and maintenance into a single integrated development environment for the [MySQL](https://www.mysql.com/) database system.
 
 ## Intended Users
 

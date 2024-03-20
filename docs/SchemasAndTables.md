@@ -16,8 +16,8 @@ In this section, you will learn how to create a schema, and add a table to a sch
 4. **Click** create schema from the dropdown menu. 
     
     ![Create Schema option in dropdown menu](./assets/rightClickSchema.png)
-!!! warning
-    Ensure that you are in the schemas tab and not the Administration tab (option at the bottom of the navigator section)
+    !!! warning
+        Ensure that you are in the schemas tab and not the Administration tab (option at the bottom of the navigator section)
 
     A new panel should appear in the main area of the application.
     
@@ -67,11 +67,11 @@ In this section, you will learn how to create a schema, and add a table to a sch
 
     ![Creating a table](./assets/createTable.png)
 
-!!! tips 
-    For more information on MySQL data types and column options visit:
+    !!! tips 
+        For more information on MySQL data types and column options visit:
 
-    - [MySQL 8.0 Data Types](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
-    - [MySQL 8.0 Create Table Options](https://dev.mysql.com/doc/refman/8.3/en/create-table.html#create-table-options)
+        - [MySQL 8.0 Data Types](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
+        - [MySQL 8.0 Create Table Options](https://dev.mysql.com/doc/refman/8.3/en/create-table.html#create-table-options)
 
 4. **Click** on the apply button once you are ready to create your table.
     
@@ -112,8 +112,8 @@ In this section, you will learn how to create a schema, and add a table to a sch
 3. Enter your data into their respective columns.
 
     ![Insert data into table](./assets/enterData.png)
-!!! warning
-    MySQL will enforce table rules and column rules on any data you attempt to add and will error if it does not follow the table data types, or set rules.
+    !!! warning
+        MySQL will enforce table rules and column rules on any data you attempt to add and will error if it does not follow the table data types, or set rules.
 
 4. **Click** on the apply button below the results when you're ready to add the data to your table.
     

@@ -1,6 +1,6 @@
 site_name: MySQL 8.0 User Documentation
 nav: 
-  - Home: 'Index.md'
+  - Home: 'index.md'
   - Installing MySQL: 'InstallingMySQL.md'
   - Schemas and Tables: 'SchemasAndTables.md'
   - SELECT Statements: 'SelectStatements.md'
