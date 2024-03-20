@@ -7,9 +7,9 @@ The goal of this section is to serve as a detailed guide for installing MySQL 8 
 ## Install MySQL on Windows
 
 1.  Navigate to [MySQL's official website](https://dev.mysql.com/downloads/installer/) and download the full MySQL installer package
-    ![Selecting the full MySQL installer package](./assets/MySQLInstaller.png)
+    ![Selecting the full MySQL installer package](./assets/MySQLInstallerWindows.png)
 
-    !!! note You **DO NOT** need to sign up, instead click **No thanks, just start my download**
+    !!! info You **DO NOT** need to sign up, instead click **No thanks, just start my download**
 
 2.  Execute the downloaded installer file, allowing User Account Control to authorize changes to your device. Accept the License Agreement and select the "Custom" option in "Choosing a Setup Type".
 
@@ -92,17 +92,11 @@ The goal of this section is to serve as a detailed guide for installing MySQL 8 
 10. **Verify** connectivity to MySQL via the Command Prompt using the root user credentials.
     **Click** Start Menu – type cmd and click Command Prompt Desktop App. Then, inside prompt, type **mysql -u root -p**, it will connect to the localhost with user root.
 
-        //here will be part for troubleshooting:
-        If you get the following error message:
-
-    > 'mysql' is not recognized as an internal or external command, operable program or batch file.
-    > follow the instructions below to add the mysql bin folder to the environment variables for the command prompt:
-
 ## Install MySQL on Mac
 
 1. Navigate to [MySQL's official website](https://dev.mysql.com/downloads/mysql/) and download **macOS 14 (x86, 64-bit), DMG Archive** version for installing MySQL Community Server.
 
-   ![Download MySQL on Mac](./assets/installMySQLonMac.png)
+   ![Download MySQL on Mac](./assets/installMySQLonMac.png) { width: }
 
    !!! note You **DO NOT** need to sign up, instead click **No thanks, just start my download**
 
@@ -138,10 +132,11 @@ The goal of this section is to serve as a detailed guide for installing MySQL 8 
 
     !!! note The MySQL Workbench interface is consistent across both Windows and Mac platforms, therefore, this documentation will not differentiate between the two.
 
-    If you don't have any connections under MySQL Connections, you can create a new one by **clicking** on + button
-    ![MySQL Connections list](./assets/connections.png)
+    If you don't have any connections under MySQL Connections, you can create a new one by **clicking** on ![plus button](./assets/plusButton.png) button
 
     **Enter** a connection name and leave all defaults. **Click** Ok
+
+    ![Creating a new connection](./assets/newConnection.png)
 
     !!! tips You can click on Test Connection button before pressing Ok to see if it works. It will ask for your root password.
 
@@ -152,14 +147,14 @@ The goal of this section is to serve as a detailed guide for installing MySQL 8 
     The MySQL Workbench interface features four primary areas:
 
     - The Schema (or Database) Section, located at the right, displays all the databases, tables, views, procedures, and functions.
-    - At the top, the Query Section is where queries are entered or SQL files are opened. The lightning bolt icon with cursor allows for the execution of individual queries.
+    - At the top, the Query Section is where queries are entered or SQL files are opened. The lightning bolt icon with cursor ![Lightning Bolt button with cursor](./assets/lightningbutton.png) allows for the execution of individual queries.
     - Results from executed queries, such as SELECT or SHOW TABLES commands, are shown in the Result Grid directly below the Query Section.
     - Additional information about executed queries is found in the Output Section, including the number of rows returned, execution time, or errors, along with hints for correcting syntax issues.
 
 3.  Practice Time!
     In the Query type the following command:
     `SHOW VARIABLES LIKE 'version';`
-    and **click** the lightning bolt icon with cursor.
+    and **click** ![Lightning Bolt button with cursor](./assets/lightningbutton.png).
 
     !!! info The MYSQL keywords are **case insensitive**, so
     you can type it both lowercase and uppercase (ex. show variables like 'version';).
