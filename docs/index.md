@@ -32,9 +32,9 @@ MySQL Workbench and Server can be found in the same installation wizard
 
 Here's a summary of the main sections covered in the documentation:
 
-- ABC
-- BCD
-- XYZ
+- [Installing MySQL](./InstallingMySQL.md)
+- [Schemas and Tables](./SchemasAndTables.md)
+- [Select Statements](./SelectStatements.md)
 
 ## Typographical Conventions
 
@@ -69,13 +69,13 @@ Here's a summary of the main sections covered in the documentation:
     ```
 
 7.  Each example will include a content tab with the query structure and a real-life example:
-    === "Query"
+=== "Query"
 
-            ``` sql linenums="1" hl_lines="3"
-            SELECT { * | column1, column2 }
-            FROM <table>
-            ORDER BY { columnA, columnB };
-            ```
+    ``` sql linenums="1" hl_lines="3"
+    SELECT { * | column1, column2 }
+    FROM <table>
+    ORDER BY { columnA, columnB };
+    ```
 
 === "Example"
 

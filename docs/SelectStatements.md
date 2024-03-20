@@ -59,7 +59,7 @@ In SQL, the order you write the code isn't the same as how it executes. So, to u
 | `HAVING`   | :octicons-triangle-down-16: `SELECT`  | Only after all these calculations have made will SQL `SELECT` which columns you want to see returned.|
 | `ORDER BY`  | :octicons-triangle-down-16: `ORDER BY`| This sorts the data returned.|
 | `LIMIT`    | :octicons-triangle-down-16: `LIMIT`   | Lastly, you can limit the number of rows returned.|
-|||_source: [SQL Query Order of Execution](https://matam-kirankumar.medium.com/sql-query-order-of-execution-37001da1462), Kiran Kumar, Medium(2022)_|
+|||_source: _Kumar, K. (2022, September 5). [SQL Query Order of Execution](https://matam-kirankumar.medium.com/sql-query-order-of-execution-37001da1462), Kiran Kumar, Medium(2022). SQL Query Order of Execution: | by Kiran Kumar | Medium. Kiran Kumar. Retrieved March 20, 2024_|
 
 ## Examples of using SELECT statements
 
@@ -343,7 +343,7 @@ By going through this section, you will achieve the following:
 * Getting acknowledgement about 5 sets of SQL commands
 * Understanding and proficiency in writing the simplest SELECT statements
 
-Great work! :heart: If you encounter any issues while running MySQL queries, be sure to check out the next section for assistance:
+Great work! :heart: If you encounter any issues while running MySQL queries, be sure to check out the next section for assistance: [Troubleshooting](./Troubleshooting.md)
 
 
 
