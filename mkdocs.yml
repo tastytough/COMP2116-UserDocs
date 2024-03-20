@@ -3,7 +3,7 @@ nav:
   - Home: 'index.md'
   - Installing MySQL: 'Task1Ademi.md'
   - Schemas and Tables: 'Task2Angus.md'
-  - Select Statements: 'Task3Emmy.md'
+  - SELECT Statements: 'Task3Emmy.md'
   - Glossary: 'GlossarySB.md'
   - Troubleshooting: 'TroubleshootingSB.md'
 
