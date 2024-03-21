@@ -32,9 +32,9 @@ This documentation is intended for:
 
 Here's a summary of the main sections covered in the documentation:
 
-- [Installing MySQL](./InstallingMySQL.md)
-- [Schemas and Tables](./SchemasAndTables.md)
-- [Select Statements](./SelectStatements.md)
+- [**Installing MySQL**](./InstallingMySQL.md)
+- [**Understanding Schemas and Tables**](./SchemasAndTables.md)
+- [**Implementing Select Statements**](./SelectStatements.md)
 
 ## Typographical Conventions
 

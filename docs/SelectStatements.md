@@ -128,7 +128,7 @@ Using `FROM` will show all rows and **some** columns from a single table
     === "Query"
 
         ```sql linenums="1"
-        SELECT {colum1, column2} 
+        SELECT {column1, column2} 
         FROM <table>
         ```
 
@@ -153,7 +153,7 @@ To show all rows and **combine** some columns from a single table, you can set a
 
         ```sql linenums="1" hl_lines="2"
         SELECT 
-            CONCAT(colum1,' ', column2) AS "name"
+            CONCAT(column1,' ', column2) AS "name"
         FROM <table>
         ```
 
