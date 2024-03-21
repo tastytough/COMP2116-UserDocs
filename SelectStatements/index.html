@@ -1,0 +1,1076 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../SchemasAndTables/">
+      
+      
+        <link rel="next" href="../Troubleshooting/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+      
+        <title>SELECT Statements - MySQL 8.0 User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#querying-databases-with-select-statement" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="MySQL 8.0 User Documentation" class="md-header__button md-logo" aria-label="MySQL 8.0 User Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MySQL 8.0 User Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SELECT Statements
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tastytough/MySQL-8.0-User-Documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tastytough/MySQL-8.0-User-Documentation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MySQL 8.0 User Documentation" class="md-nav__button md-logo" aria-label="MySQL 8.0 User Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MySQL 8.0 User Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tastytough/MySQL-8.0-User-Documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tastytough/MySQL-8.0-User-Documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstallingMySQL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing MySQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SchemasAndTables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schemas and Tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SELECT Statements
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    SELECT Statements
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-structure-of-select-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic structure of SELECT statement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-query-order-of-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL Query order of execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples-of-using-select-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples of using SELECT statements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples of using SELECT statements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    <span class="md-ellipsis">
+      SELECT *
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from" class="md-nav__link">
+    <span class="md-ellipsis">
+      FROM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      ORDER BY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where" class="md-nav__link">
+    <span class="md-ellipsis">
+      WHERE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      GROUP BY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#having" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAVING
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="querying-databases-with-select-statement">Querying databases with SELECT statement</h1>
+<h2 id="overview">Overview</h2>
+<p><a href="https://www.techtarget.com/searchdatamanagement/definition/RDBMS-relational-database-management-system">Relational Database Management System</a> is a program allow you to create <a href="https://en.wikipedia.org/wiki/Database">databases</a>, data tables, insert data into tables, edit, update, retrieve, delete data from tables, and manage user's permission. </p>
+<p>It includes <a href="https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/">five(5) main sets of SQL commands</a> which are using frequently in MySQL:</p>
+<ul>
+<li>
+<p>Data Definition Language(DDL)</p>
+<ul>
+<li>CREATE</li>
+<li>ALTER</li>
+<li>DROP</li>
+</ul>
+</li>
+<li>
+<p>Data Query Language (DQL)</p>
+<ul>
+<li>SELECT</li>
+</ul>
+</li>
+<li>
+<p>Data Manipulation Language (DML)</p>
+<ul>
+<li>INSERT</li>
+<li>UPDATE</li>
+<li>DELETE</li>
+</ul>
+</li>
+<li>
+<p>Data Control Language (DCL)</p>
+<ul>
+<li>CREATE USER</li>
+<li>GRANT</li>
+<li>REVOKE</li>
+</ul>
+</li>
+<li>
+<p>Transaction Control Language (TCL)</p>
+<ul>
+<li>BEGIN</li>
+<li>COMMIT</li>
+<li>ROLLBACK</li>
+</ul>
+</li>
+</ul>
+<p>The goal of this section is walk you through a basic instruction of using SELECT commands in Data Query Language of MySQL to retrieve data from databases. </p>
+<h2 id="basic-structure-of-select-statement">Basic structure of SELECT statement</h2>
+<p>Basic SELECT statement in MySQL comes with five(5) clauses. To memorize the order of SQL queries, you can choose either this sentence <em>"Some French Waiters Grow Healthy Oranges"</em> or <em>"Sweaty Feet Will Give Horrible Odours!"</em>, where the initial characters of this sentence align with those of SELECT statement <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f604.svg" title=":smile:" /> :</p>
+<div class="admonition tips">
+<p class="admonition-title">Tip</p>
+<p><pre>
+<strong>S</strong>elect              <strong>S</strong>ome              <strong>S</strong>weaty
+<strong>F</strong>rom                <strong>F</strong>rench            <strong>F</strong>eet
+<strong>W</strong>here               <strong>W</strong>aiters           <strong>W</strong>ill
+<strong>G</strong>roup by            <strong>G</strong>row              <strong>G</strong>ive
+<strong>H</strong>aving              <strong>H</strong>ealthy           <strong>H</strong>orrible
+<strong>O</strong>rder by            <strong>O</strong>ranges           <strong>O</strong>dours
+</pre></p>
+</div>
+<p>When writing a query, all clauses in the SELECT statement apart from SELECT itself are considered optional. Each of these optional clauses can either be included, combined, or omitted as needed.</p>
+<h2 id="sql-query-order-of-execution">SQL Query order of execution</h2>
+<p>In SQL, the order you write the code isn't the same as how it executes. So, to understand how an SQL query works, it's important to know the right <a href="https://matam-kirankumar.medium.com/sql-query-order-of-execution-37001da1462">SQL execution structure</a>. Then, you can user certain keywords when writing the query. </p>
+<table>
+<thead>
+<tr>
+<th>What the query looks like</th>
+<th>How it's executed</th>
+<th>Why it works this way</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SELECT</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"/></svg></span> <code>FROM</code></td>
+<td>SQL starts with which table your query is taking data from</td>
+</tr>
+<tr>
+<td><code>FROM</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"/></svg></span> <code>WHERE</code></td>
+<td>This is how SQL filters on rows.</td>
+</tr>
+<tr>
+<td><code>WHERE</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"/></svg></span> <code>GROUP BY</code></td>
+<td>This is where your SQL query checks if you have an aggregation.</td>
+</tr>
+<tr>
+<td><code>GROUP BY</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"/></svg></span> <code>HAVING</code></td>
+<td><code>HAVING</code> requires a <code>GROUP BY</code> statement.</td>
+</tr>
+<tr>
+<td><code>HAVING</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"/></svg></span> <code>SELECT</code></td>
+<td>Only after all these calculations have made will SQL <code>SELECT</code> which columns you want to see returned.</td>
+</tr>
+<tr>
+<td><code>ORDER BY</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"/></svg></span> <code>ORDER BY</code></td>
+<td>This sorts the data returned.</td>
+</tr>
+<tr>
+<td><code>LIMIT</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"/></svg></span> <code>LIMIT</code></td>
+<td>Lastly, you can limit the number of rows returned.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>source: Kumar, K. (2022, September 5). <a href="https://matam-kirankumar.medium.com/sql-query-order-of-execution-37001da1462">SQL Query Order of Execution</a>, Medium(2022)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples-of-using-select-statements">Examples of using SELECT statements</h2>
+<h3 id="initial-setup">Initial setup</h3>
+<p>Before exploring the simpliest SELECT statements, you need to initally set up</p>
+<ol>
+<li>
+<p>Open MySQL Workbench</p>
+</li>
+<li>
+<p>Choose your MySQL database by <strong>clicking</strong> on the connection.</p>
+<p>In the example, it is localhost <code>Local instance 3306</code></p>
+<p><img alt="Open MySQL" src="../assets/openMySQL.png" width="500" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The connection you choose is where you have the database</p>
+</div>
+</li>
+<li>
+<p>Fill in your username and password to login your connection</p>
+<p><img alt="Login MySQL Workbench" src="../assets/userPassword.png" width="500" /></p>
+</li>
+<li>
+<p>Choose the schema you want to work on by <strong>right clicking</strong> on the schema's name, <strong>click</strong>  [Set as Default Schema].</p>
+<p>Another way to do that, <strong>click</strong> [File], <strong>choose</strong> [Open SQL Script], and type <code>USE</code> &lt; schema's name &gt; in query script.</p>
+</li>
+</ol>
+<p>Now, you are all set to dive in SELECT statements in the following sections:</p>
+<h3 id="select">SELECT *</h3>
+<p><code>SELECT</code> used with an asterisk <code>(*)</code> will return all rows and all columns from the table we're quering.</p>
+<ol>
+<li>
+<p>Add the query example below in SQL script. Replace <code>customer</code> with your table's name:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Query</label><label for="__tabbed_1_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">customer</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Click</strong> <img alt="Lightning Button" src="../assets/lightningBtn.png" width="20" /> to run the query:</p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p><img alt="SELECT ALL" src="../assets/selectAll.png" width="500" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p><img alt="Lightning Bolt button" src="../assets/lightningBtn.png" width="20" />: Use this button when you want to run all queries at the same time.</p>
+</li>
+<li>
+<p><img alt="Lightning Bolt button with cursor" src="../assets/lightningBtnWithCursor.png" width="20" />: Use this button when you want to run ONLY ONE specific query. To use it, you need to place your cursor at the query you want to run and click the button.</p>
+</li>
+</ul>
+</div>
+<h3 id="from">FROM</h3>
+<p>Using <code>FROM</code> will show all rows and <strong>some</strong> columns from a single table</p>
+<ol>
+<li>
+<p>Add the query example below in SQL script. Replace <code>vendor</code> with your table's name, <code>v_name</code>, <code>v_areacode</code>, <code>v_phone</code>, <code>v_state</code> with your column's names:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Query</label><label for="__tabbed_2_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="err">{</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="err">}</span><span class="w"> </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">v_name</span><span class="p">,</span><span class="w"> </span><span class="n">v_areacode</span><span class="p">,</span><span class="w"> </span><span class="n">v_phone</span><span class="p">,</span><span class="w"> </span><span class="n">v_state</span><span class="w"> </span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">vendor</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Click</strong> <img alt="Lightning Button" src="../assets/lightningBtn.png" width="20" /> to run the query:</p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p><img alt="SELECT FROM" src="../assets/selectFrom.png" width="500" /></p>
+</div>
+<p>To show all rows and <strong>combine</strong> some columns from a single table, you can set a name for this combined column using <code>CONCAT</code> and <code>AS</code> followed by a name (as known as an <code>alias</code>) enclosed in double quote <code>" "</code>.</p>
+<ol>
+<li>
+<p>Add the query example below in SQL script. Replace <code>customer</code> with your table's name, <code>CUS_LNAME</code>, <code>CUS_FNAME</code>, <code>CUS_AREACODE</code>, <code>CUS_PHONE</code> with your column's names:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Query</label><label for="__tabbed_3_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="hll"><span class="w">    </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;name&quot;</span>
+</span></span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="hll"><span class="w">    </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">CUS_LNAME</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">CUS_FNAME</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;Name&quot;</span><span class="p">,</span>
+</span></span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="hll"><span class="w">    </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">CUS_AREACODE</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">CUS_PHONE</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;Fullphone&quot;</span>
+</span></span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">customer</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Click</strong> <img alt="Lightning Button" src="../assets/lightningBtn.png" width="20" /> to run the query:</p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p><img alt="SELECT CONCAT" src="../assets/selectConcat.png" width="500" /></p>
+</div>
+<h3 id="order-by">ORDER BY</h3>
+<p>Display all rows from a single table in a specific sequence. You can indicate the sorting arrangement using the <code>ORDER BY</code> clause.</p>
+<ol>
+<li>
+<p>Add the query example below in SQL script. Replace <code>PRODUCT</code> with your table's name, <code>P_CODE</code>, <code>P_DESCRIPT</code>, <code>P_PRICE</code> with your column's names:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Query</label><label for="__tabbed_4_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="w"> </span><span class="err">}</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">&lt;</span><span class="n">columnA</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- (1)!</span>
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li><img alt="🙋‍♀️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f64b-200d-2640-fe0f.svg" title=":woman_raising_hand:" /> columnA <strong>does not need</strong> to match the { column1, column2,... } list in SELECT clause.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">P_CODE</span><span class="p">,</span><span class="w"> </span><span class="n">P_DESCRIPT</span><span class="p">,</span><span class="w"> </span><span class="n">P_PRICE</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">PRODUCT</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">P_PRICE</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w"> </span><span class="c1">-- (1)!</span>
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li><img alt="🙋‍♀️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f64b-200d-2640-fe0f.svg" title=":woman_raising_hand:" /> The default order in the <code>ORDER BY</code> clause is <strong>ascending</strong>. You can choose to include the keyword ASC after the column name, but it's optional. Additionally, using <code>DESC</code> specifies <strong>descending</strong> order.</li>
+</ol>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Click</strong> <img alt="Lightning Button" src="../assets/lightningBtn.png" width="20" /> to run the query:</p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p><img alt="SELECT ORDER BY" src="../assets/selectOrderDesc.png" width="500" /></p>
+</div>
+<p>In the <code>ORDER BY</code> clause, you can specify multiple columns for sorting, and the order will proceed sequentially from the first column onward.</p>
+<ol>
+<li>
+<p>Add the query example below in SQL script. Replace <code>CUSTOMER</code> with your table's name, <code>CUS_LNAME</code>, <code>CUS_FNAME</code>, <code>CUS_INITIAL</code> with your column's names:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Query</label><label for="__tabbed_5_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="w"> </span><span class="err">}</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="hll"><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">columnA</span><span class="p">,</span><span class="w"> </span><span class="n">columnB</span><span class="w"> </span><span class="err">}</span><span class="p">;</span>
+</span></span></code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">CUS_LNAME</span><span class="p">,</span><span class="w"> </span><span class="n">CUS_FNAME</span><span class="p">,</span><span class="w"> </span><span class="n">CUS_INITIAL</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">CUSTOMER</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="hll"><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">CUS_LNAME</span><span class="p">,</span><span class="w"> </span><span class="n">CUS_FNAME</span><span class="p">;</span>
+</span></span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Click</strong> <img alt="Lightning Button" src="../assets/lightningBtn.png" width="20" /> to run the query:</p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p><img alt="SELECT ORDER BY multiple columns" src="../assets/selectOrderMulti.png" width="500" /></p>
+</div>
+<h3 id="where">WHERE</h3>
+<p>Using <code>WHERE</code> clause to filter the rows from a table based on specified condition.</p>
+<ol>
+<li>
+<p>Add the query example below in SQL script. Replace <code>CUSTOMER</code> with your table's name, <code>CUS_CODE</code>, <code>CUS_LNAME</code>, <code>CUS_FNAME</code>, <code>CUS_AREACODE</code>, <code>CUS_PHONE</code> with your column's names:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Query</label><label for="__tabbed_6_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="w"> </span><span class="err">}</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="hll"><span class="k">WHERE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span></code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">CUS_CODE</span><span class="p">,</span><span class="w"> </span><span class="n">CUS_LNAME</span><span class="p">,</span><span class="w"> </span><span class="n">CUS_FNAME</span><span class="p">,</span><span class="w"> </span><span class="n">CUS_AREACODE</span><span class="p">,</span><span class="w"> </span><span class="n">CUS_PHONE</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">CUSTOMER</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="hll"><span class="k">WHERE</span><span class="w"> </span><span class="n">CUS_FNAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Anne&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">CUS_LNAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Brown&#39;</span><span class="p">;</span>
+</span></span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Click</strong> <img alt="Lightning Button" src="../assets/lightningBtn.png" width="20" /> to run the query:</p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p><img alt="SELECT WHERE" src="../assets/selectWhere.png" width="500" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p><a href="(https://www.w3schools.com/mysql/mysql_operators.asp)">Conditions</a> can be expressed in various forms:</p>
+<ul>
+<li>Comparison operators</li>
+<li>Logical operators</li>
+<li>Ranges</li>
+<li>Lists of values indicated by</li>
+<li>Pattern matching</li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.w3schools.com/mysql/mysql_null_values.asp">NULL values</a></p>
+</li>
+</ul>
+</div>
+<h3 id="group-by">GROUP BY</h3>
+<p>Using <code>GROUP BY</code> clause to group rows with the same value. This clause is usually used with <a href="https://www.w3schools.com/sql/sql_aggregate_functions.asp#:~:text=An%20aggregate%20function%20is%20a,clause%20of%20the%20SELECT%20statement.">aggregate functions</a>.</p>
+<ol>
+<li>
+<p>Add the query example below in SQL script. Replace <code>VENDOR</code> with your table's name, <code>V_STATE</code> with your column's name:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Query</label><label for="__tabbed_7_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="k">AGGREGATE</span><span class="p">(</span><span class="n">column1</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">columnA</span><span class="p">,</span><span class="w"> </span><span class="n">columnB</span><span class="p">...</span><span class="err">}</span><span class="w"> </span><span class="c1">-- (1)!</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="hll"><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">columnA</span><span class="p">,</span><span class="w"> </span><span class="n">columnB</span><span class="w"> </span><span class="err">}</span><span class="p">;</span>
+</span></span></code></pre></div></td></tr></table></div>
+<ol>
+<li>Replace <strong>AGGREGATE</strong> with one of the five(5) aggregate functions.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">V_STATE</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s1">&#39;Count by State&#39;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VENDOR</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="hll"><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">V_STATE</span><span class="p">;</span>
+</span></span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Click</strong> <img alt="Lightning Button" src="../assets/lightningBtn.png" width="20" /> to run the query:</p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p><img alt="SELECT GROUP BY" src="../assets/selectGroupBy.png" width="500" /></p>
+</div>
+<h3 id="having">HAVING</h3>
+<p>Using <code>HAVING</code> clause in SQL to filter the results of grouped data based on specified conditions. It's often used after the <code>GROUP BY</code> clause to apply conditions to the groups created by <code>GROUP BY</code>. Specifically, <code>HAVING</code> is used to filter groups based on aggregate values, such as <code>SUM</code>, <code>COUNT</code>, <code>AVG</code>, <code>MAX</code>, <code>MIN</code>, etc.</p>
+<ol>
+<li>
+<p>Add the query example below in SQL script. Replace <code>employee</code> with your table's name, <code>EMP_LNAME</code>, with your column's name:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Query</label><label for="__tabbed_8_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="k">AGGREGATE</span><span class="p">(</span><span class="n">column1</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">columnA</span><span class="p">,</span><span class="w"> </span><span class="n">columnB</span><span class="p">...</span><span class="err">}</span><span class="w"> </span><span class="c1">-- (1)!</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">columnA</span><span class="p">,</span><span class="w"> </span><span class="n">columnB</span><span class="w"> </span><span class="err">}</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="hll"><span class="k">HAVING</span><span class="w"> </span><span class="o">&lt;</span><span class="n">restriction</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span></code></pre></div></td></tr></table></div>
+<ol>
+<li>Replace <strong>AGGREGATE</strong> with one of the five(5) aggregate functions.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">EMP_LNAME</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">EMP_LNAME</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="hll"><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span></span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Click</strong> <img alt="Lightning Button" src="../assets/lightningBtn.png" width="20" /> to run the query:</p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p><img alt="SELECT HAVING" src="../assets/selectHaving.png" width="500" /></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Congratulation <img alt="👏" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f44f.svg" title=":clap:" /></p>
+<p>Now that you're familiar with the simplest SELECT statements in MySQL, you can further practice and enhance your skills by exploring the following resources:</p>
+<ul>
+<li><a href="https://sqlbolt.com/">SQL Bolt</a></li>
+<li><a href="https://sqlzoo.net/wiki/SQL_Tutorial">SQL Zoo</a></li>
+<li><a href="https://www.sql-practice.com/">SQL Practice</a></li>
+</ul>
+<p>Happy practicing! <img alt="😉" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f609.svg" title=":wink:" /></p>
+</div>
+<h2 id="conclusion">Conclusion</h2>
+<p>By going through this section, you will achieve the following:</p>
+<ul>
+<li>Getting acknowledgement about 5 sets of SQL commands</li>
+<li>Understanding and proficiency in writing the simplest SELECT statements</li>
+</ul>
+<p>Great work! <img alt="❤" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2764.svg" title=":heart:" /> If you encounter any issues while running MySQL queries, be sure to check out the next section for assistance: <a href="../Troubleshooting/">Troubleshooting</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/tastytough/MySQL-8.0-User-Documentation" target="_blank" rel="noopener">Angus Ng, Ademi Ordobaeva, Emmy Nguyen</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/tastytough/MySQL-8.0-User-Documentation" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking", "toc.integrate", "content.code.copy", "content.code.select", "content.code.annotate", "content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>

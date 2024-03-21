@@ -1,0 +1,754 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../SchemasAndTables/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+      
+        <title>Installing MySQL - MySQL 8.0 User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installing-mysql" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="MySQL 8.0 User Documentation" class="md-header__button md-logo" aria-label="MySQL 8.0 User Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MySQL 8.0 User Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installing MySQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tastytough/MySQL-8.0-User-Documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tastytough/MySQL-8.0-User-Documentation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MySQL 8.0 User Documentation" class="md-nav__button md-logo" aria-label="MySQL 8.0 User Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MySQL 8.0 User Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tastytough/MySQL-8.0-User-Documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tastytough/MySQL-8.0-User-Documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Installing MySQL
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Installing MySQL
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-mysql-on-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install MySQL on Windows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-mysql-on-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install MySQL on Mac
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      MySQL Workbench
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SchemasAndTables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schemas and Tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SelectStatements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SELECT Statements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="installing-mysql">Installing MySQL</h1>
+<h2 id="overview">Overview</h2>
+<p>The goal of this section is to serve as a detailed guide for installing MySQL 8 on a Windows 10 or a Mac environment.</p>
+<h2 id="install-mysql-on-windows">Install MySQL on Windows</h2>
+<ol>
+<li>
+<p>Navigate to <a href="https://dev.mysql.com/downloads/installer/">MySQL's official website</a> and download the full MySQL installer package
+    <img alt="Selecting the full MySQL installer package" src="../assets/MySQLInstallerWindows.png" width="500" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You <strong>DO NOT</strong> need to sign up, instead click <strong>No thanks, just start my download</strong>.</p>
+</div>
+</li>
+<li>
+<p>Execute the downloaded installer file, allowing <em>User Account Control</em> to authorize changes to your device. Accept the <em>License Agreement</em> and select the [Custom] option in <em>Choosing a Setup Type</em>.</p>
+<p><img alt="Choosing the custom setup type" src="../assets/CustomSetup.png" width="500" /></p>
+</li>
+<li>
+<p>It's suggested installing the following components for a comprehensive setup:</p>
+<ul>
+<li>MySQL Server 8.0.11 (X64)</li>
+<li>MySQL Workbench 8.0.11 (X64)</li>
+<li>MySQL Shell 8.0.11 (X64)</li>
+<li>Connector/ODBC 8.0.11 (X64)</li>
+<li>MySQL Documentation 8.0.11 (X86)</li>
+<li>Samples and Examples 8.0.11 (X86)</li>
+</ul>
+<p><img alt="Choosing the products and features" src="../assets/MySQLFeatures.png" width="500" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is advised to select the latest available versions of these components.</p>
+</div>
+</li>
+<li>
+<p>Install Microsoft Visual C++ Redistributable.</p>
+<p><img alt="Installing Microsoft Visual C++ Redistributabel" src="../assets/MicrosoftVisualC%2B%2B.png" width="500" /></p>
+</li>
+<li>
+<p><strong>Click</strong> execute and wait untill all products will be installed.</p>
+<p><img alt="Installation of MySQL products" src="../assets/Installation.png" width="500" /></p>
+</li>
+<li>
+<p>Rerun <em>MySQL Installer</em>. <strong>Click</strong> reconfigure, under <em>Quick Action</em>, next to <em>MySQL Server</em>.
+    <img alt="Clicking on Reconfigure next to MySQL Server" src="../assets/ServerReconfigure.png" width="500" /></p>
+<div class="admonition tips">
+<p class="admonition-title">Tips</p>
+<p>You can rerun it by going to your Windows <strong>Start Menu</strong></p>
+</div>
+</li>
+<li>
+<p>The configuration process involves setting up MySQL as a standalone server, configuring development computer settings, and choosing strong password encryption for authentication.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The install wizard for this software <strong>changes frequently</strong>. If what you see is a bit different from this guide, you can just go with the default options and keep installing.</p>
+</div>
+<ul>
+<li>
+<p>Group Replication</p>
+<p><strong>Click</strong> Standalone</p>
+<p><img alt="Clicking on Standalone at Group Replication" src="../assets/GroupReplication.png" width="500" /></p>
+</li>
+<li>
+<p>Type and Networking</p>
+<p><strong>Choose</strong> [Development Computer for Config Type], <strong>click</strong> [Show Advanced Options], <strong>keep</strong> all other defaults</p>
+<p><img alt="Type and Networking settings" src="../assets/TypeandNetworking.png" width="500" /></p>
+</li>
+<li>
+<p>Authentication method</p>
+<p><strong>Click</strong> [Use Strong Password Encryption for Authentication]. Then, <strong>click</strong> next and <strong>create</strong> a strong root password.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Create a root password and make a note of it for future reference.</p>
+</div>
+<p><img alt="Authentication Method" src="../assets/AuthenticationMethod.png" width="500" /></p>
+</li>
+<li>
+<p>Windows Service</p>
+<p>There should be all default options.</p>
+<p><img alt="Windows Service" src="../assets/WindowsService.png" width="500" /></p>
+</li>
+<li>
+<p>Plugins and Extension</p>
+<p>Leave the MySQL Document Store feature <strong>unchecked</strong> because we are not going to use it.</p>
+<p><img alt="Plugins and Extension: unchecked MySQL as a Document Store" src="../assets/PluginsandExtensions.png" width="500" /></p>
+</li>
+<li>
+<p>Advanced Options</p>
+<p>There should be all default options.</p>
+<p><img alt="Advanced Options" src="../assets/AdvancedOptions.png" width="500" /></p>
+</li>
+<li>
+<p>Apply Configuration</p>
+<p><strong>Click</strong> on execute button.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Click</strong> reconfigure next to <em>Samples and Examples</em></p>
+<p><img alt="Reconfigure Samples and Examples" src="../assets/MySQLInstallerSaE.png" width="500" /></p>
+</li>
+<li>
+<p>Type your root password that you created at Authentication method section. <strong>Click</strong> [Check], then <strong>click</strong> [Next].</p>
+<p><img alt="Connect to server by checking the root password" src="../assets/ConnecttoServer.png" width="500" /></p>
+<p>Apply Configuration</p>
+<p><strong>Click</strong> on execute button, wait until it finished, <strong>click</strong> on next button.</p>
+</li>
+<li>
+<p><strong>Verify</strong> connectivity to MySQL via the Command Prompt using the root user credentials.
+    <strong>Click</strong> [Start Menu] – type <code>cmd</code> and <strong>click</strong> [Command Prompt Desktop App]. Then, inside prompt, type <code>mysql -u root -p</code>, it will connect to the localhost with user root.
+    Your promt should change to <code>mysql&gt;</code>. <strong>Run</strong> command <code>show variables like "version";</code>, the app will return the version of your MySQL.</p>
+</li>
+</ol>
+<h2 id="install-mysql-on-mac">Install MySQL on Mac</h2>
+<ol>
+<li>
+<p>Navigate to <a href="https://dev.mysql.com/downloads/mysql/">MySQL's official website</a> and download <em>macOS 14 (x86, 64-bit), DMG Archive</em> version for installing <em>MySQL Community Server</em>.</p>
+<p><img alt="Download MySQL on Mac" src="../assets/installMySQLonMac.png" width="500" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You <strong>DO NOT</strong> need to sign up, instead click <strong>No thanks, just start my download</strong></p>
+</div>
+</li>
+<li>
+<p>Open the <code>DMG file</code> from the <em>Downloads</em> folder, then run the <code>PKG file</code> within to start the installation process.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The system might warn you about installing this package. <strong>Click</strong> allow to continue.</p>
+</div>
+</li>
+<li>
+<p>Follow the steps in the <em>MySQL Community Installation Wizard</em>, agreeing to the <em>License Agreement</em>, leaving the default install directory and selecting [Strong Password Encryption] when prompted.</p>
+<p><img alt="Choosing Strong Password Encryption" src="../assets/MySQLMacWizard.png" width="500" /></p>
+<p>Create a new password for your MySQL root account and remember it, as it will be needed for login.</p>
+<p>Confirm the successful installation by <strong>clicking</strong> [Close] at the completion screen.</p>
+<p><img alt="Confirmation for installing MySQL Server" src="../assets/completedInstallationMac.png" width="500" /></p>
+</li>
+<li>
+<p>Go to <a href="https://dev.mysql.com/downloads/workbench/">MySQL's official website</a> to install <em>MySQL Workbench</em>. <strong>Download</strong> the same package as you did for <em>Community Server</em>, and open it.
+   Drag the MySQL Workbench icon to the <em>Applications</em> folder to install. Launch MySQL Workbench from the Applications folder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If macOS blocks the application because it cannot verify the developer, proceed to [System Preferences] &gt; [Security &amp; Privacy] and <strong>click</strong> [Open Anyway].</p>
+</div>
+</li>
+<li>
+<p>Try to run MySQL Workbench.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If macOS blocks the application because it cannot be checked for malicious, proceed to [System Preferences] &gt; [Security &amp; Privacy] and <strong>click</strong> [Open Anyway].</p>
+</div>
+</li>
+<li>
+<p><strong>Verify</strong> connectivity to MySQL via the <em>Terminal</em> app using the root user credentials.
+   <strong>Open</strong> the Terminal App. Then, type <code>mysql -u root -p</code>, it will connect to the localhost with user root.
+   Your promt should change to <code>mysql&gt;</code>. <strong>Run</strong> command <code>show variables like "version";</code>, the app will return the version of your MySQL</p>
+</li>
+</ol>
+<h2 id="mysql-workbench">MySQL Workbench</h2>
+<ol>
+<li>
+<p>Open MySQL Workbench
+    It will look like this when you open it:</p>
+<p><img alt="MySQL Workbench" src="../assets/MySQLWorkbench.png" width="500" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The MySQL Workbench interface is consistent across both Windows and Mac platforms, therefore, this documentation will not differentiate between the two.</p>
+</div>
+<p>If you don't have any connections under <em>MySQL Connections</em>, you can create a new one by <strong>clicking</strong> on <img alt="plus button" src="../assets/plusButton.png" width="20" /> button</p>
+<p><strong>Enter</strong> a connection name and leave all defaults. <strong>Click</strong> Ok</p>
+<p><img alt="Creating a new connection" src="../assets/newConnection.png" width="500" /></p>
+<div class="admonition tips">
+<p class="admonition-title">Tips</p>
+<p>You can <strong>click</strong> on [Test Connection] button before <strong>pressing</strong> [OK] to see if it works. It will ask for your root password.</p>
+</div>
+</li>
+<li>
+<p>Open your connection by <strong>double clicking</strong> on it and enter your root password.
+    Once open it will look like this</p>
+<p><img alt="MySQL Workbench" src="../assets/Workbench.png" width="500" /></p>
+<p>The <em>MySQL Workbench</em> interface features four primary areas:</p>
+<ul>
+<li>The <em>Schema</em> (or Database) Section, located at the right, displays all the databases, tables, views, procedures, and functions.</li>
+<li>At the top, the <em>Query Section</em> is where queries are entered or SQL files are opened. The lightning bolt icon with cursor <img alt="Lightning Bolt button with cursor" src="../assets/lightningbutton.png" width="20" /> allows for the execution of individual queries.</li>
+<li>Results from executed queries, such as <code>SELECT</code> or <code>SHOW TABLES</code> commands, are shown in the <em>Result Grid</em> directly below the <em>Query Section</em>.</li>
+<li>Additional information about executed queries is found in the <em>Output Section</em>, including the number of rows returned, execution time, or errors, along with hints for correcting syntax issues.</li>
+</ul>
+</li>
+<li>
+<p>Practice Time!
+    In the Query type the following command:
+    <code>SHOW VARIABLES LIKE 'version';</code>
+    and <strong>click</strong> <img alt="Lightning Bolt button with cursor" src="../assets/lightningbutton.png" width="20" />.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The MYSQL keywords are <strong>case insensitive</strong>, so you can type it both lowercase and uppercase (ex. show variables like 'version';).</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>The result should look like this:</p>
+<p><img alt="Query result" src="../assets/ShowVersion.png" width="500" /></p>
+</div>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>By the end of this section, you will have successfully learned the following:</p>
+<ul>
+<li>How to install MySQL on your computer.</li>
+<li>How to connect to MySQL using the MySQL Workbench.</li>
+<li>How to run queries in MySQL Workbench.</li>
+</ul>
+<p>Great work! <img alt="❤" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2764.svg" title=":heart:" /> To deepen your understanding of MySQL schemas and tables, make sure to explore <a href="../SchemasAndTables/">Schemas and Tables</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/tastytough/MySQL-8.0-User-Documentation" target="_blank" rel="noopener">Angus Ng, Ademi Ordobaeva, Emmy Nguyen</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/tastytough/MySQL-8.0-User-Documentation" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking", "toc.integrate", "content.code.copy", "content.code.select", "content.code.annotate", "content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>
