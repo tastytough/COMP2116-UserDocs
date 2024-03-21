@@ -14,9 +14,9 @@ This documentation is intended for:
 
 ## Prerequisite Knowledge
 
-- Having a basic knowledge of Microsoft Excel
-  - know how to create a simple table with data in rows and columns.
-  - how to format a table, and what data type should be in a specific cell.
+- Have a basic knowledge of Microsoft Excel:
+    * Know how to create a simple table with data in rows and columns.
+    * Know how to format a table, and what data type should be in a specific cell.
 - Set up a connection from MySQL Workbench to MySQL server.
 
 ## Software Requirements
@@ -105,16 +105,10 @@ Here's a summary of the main sections covered in the documentation:
 !!! success
     Indicates successful results.
 
-## Objective of Documentation
+## Documentation Goals
 
-- Installing MySQL
-- Understanding how to use MySQL Workbench
-- Understand Entity-Relationship Diagrams (ERD) and create them.
-- Familiarize yourself with data types commonly used in databases.
-- Comprehend the concepts of primary keys and foreign keys in database design.
-- Explore the relationships between different tables within a database.
-- Learn the process of normalizing database tables.
-- Recognize the characteristics of both poor and effective data structures.
-- Master the techniques for storing data in databases efficiently.
-- Gain proficiency in retrieving data from databases.
-- Practice querying using the SELECT statement with single tables.
+- Guide through the installation of MySQL.
+- Provide insights into using MySQL Workbench.
+- Guide through the creation and understanding of Schemas and Tables.
+- Cover the fundamentals of querying databases, focusing on the SELECT statement with single tables.
+
