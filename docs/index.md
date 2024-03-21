@@ -69,21 +69,22 @@ Here's a summary of the main sections covered in the documentation:
     ```
 
 7.  Each example will include a content tab with the query structure and a real-life example:
-=== "Query"
 
-    ``` sql linenums="1" hl_lines="3"
-    SELECT { * | column1, column2 }
-    FROM <table>
-    ORDER BY { columnA, columnB };
-    ```
+    === "Query"
 
-=== "Example"
+        ``` sql linenums="1" hl_lines="3"
+        SELECT { * | column1, column2 }
+        FROM <table>
+        ORDER BY { columnA, columnB };
+        ```
 
-    ``` sql linenums="1" hl_lines="3"
-    SELECT CUS_LNAME, CUS_FNAME, CUS_INITIAL
-    FROM CUSTOMER
-    ORDER BY CUS_LNAME, CUS_FNAME;
-    ```
+    === "Example"
+
+        ``` sql linenums="1" hl_lines="3"
+        SELECT CUS_LNAME, CUS_FNAME, CUS_INITIAL
+        FROM CUSTOMER
+        ORDER BY CUS_LNAME, CUS_FNAME;
+        ```
 
 8. File names, schemas, tables are shown as a same format: `test-constrainst-e-nguyen`
 

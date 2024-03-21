@@ -20,7 +20,7 @@ We made our guide based on what we learned from working with MySQL in our COMP23
 
 ### Using MkDocs
 
-We used MkDocs to serve our MySQL User Documentation because we
+We used MkDocs to serve our MySQL User Documentation online because we like the Markdown's theme, template, and components from [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/). We also experienced Markdown's references and added an extra css file to make our documentation more stunning.
 
 ### Using Markdown
 
