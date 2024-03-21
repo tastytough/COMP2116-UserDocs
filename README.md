@@ -16,7 +16,7 @@ This user docs assignment is for our in-person course. Even talked and planned o
 
 ## How we created our guide
 
-We made our guide based on what we learned from working with MySQL in our COMP2350 Web Database Technologies. We used the official [MySQL Workbench Documentation](https://dev.mysql.com/doc/workbench/en/) to enhance our practical understanding. We also reflected on challenges faced during our work with MySQL and lab assignments to ensure our instructions clear, complete, and concise.
+We made our guide based on what we learned from working with MySQL in our COMP2350 Web Database Technologies. We used the official [MySQL Workbench Documentation](https://dev.mysql.com/doc/workbench/en/) to enhance our practical understanding. We also reflected on challenges faced during our work with MySQL and lab assignments to ensure our instructions complete, used emphasis, headers, admonitions to make our documentation both clear and concise.
 
 ### Using MkDocs
 
@@ -29,8 +29,6 @@ For all of us in the group, this project was our first deep dive into writing a 
 ### Using VS Code
 
 We used VS Code to create all of our documentation files because we like the MkDocs' themes, and it's easy to use but it brings effective output for our documentation. We tried to experience [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/) in our documentation. We also added on some plugins and extra css file to make it more stunning. 
-
-### Using a Style Guide
 
 ## Learning best practices for Web Writing
 
