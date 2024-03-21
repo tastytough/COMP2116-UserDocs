@@ -86,7 +86,8 @@ Here's a summary of the main sections covered in the documentation:
         ORDER BY CUS_LNAME, CUS_FNAME;
         ```
 
-8. File names, schemas, tables are shown as a same format: `test-constrainst-e-nguyen`
+8. File names, schemas, tables, commands in line are shown as a same format: `test-constrainst-e-nguyen`.
+9. Sections, name of applications, or pages are shown as a same format: _MySQL Workbench_
 
 ## Notes and Warning Messages
 
