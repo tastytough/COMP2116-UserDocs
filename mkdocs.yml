@@ -4,8 +4,12 @@ nav:
   - Installing MySQL: 'InstallingMySQL.md'
   - Schemas and Tables: 'SchemasAndTables.md'
   - SELECT Statements: 'SelectStatements.md'
-  - Glossary: 'Glossary.md'
   - Troubleshooting: 'Troubleshooting.md'
+  - Glossary: 'Glossary.md'
+
+repo_url: https://github.com/tastytough/MySQL-8.0-User-Documentation
+
+repo_name: tastytough/MySQL-8.0-User-Documentation
 
 markdown_extensions:
   - admonition
@@ -54,5 +58,11 @@ theme:
 extra-css:
   - stylesheets/extra.css
 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tastytough/MySQL-8.0-User-Documentation
+      name: GitHub
+
 copyright: |
-  &copy; 2024 <a href="https://github.com/tastytough" target="_blank" rel="noopener">Angus Ng, Ademi Ordobaeva, Emmy Nguyen</a>
+  &copy; 2024 <a href="https://github.com/tastytough/MySQL-8.0-User-Documentation" target="_blank" rel="noopener">Angus Ng, Ademi Ordobaeva, Emmy Nguyen</a>

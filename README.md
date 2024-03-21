@@ -1,8 +1,8 @@
 # Overview of MySQL User Documentation
 
-Welcome! :wave: This guide is designed to help you get started with MySQL, a popular open-source relational database management system.
+Welcome! :wave: This guide is designed to help you get started with [**MySQL**](https://www.mysql.com/), a popular open-source relational database management system.
 
-This guide will walk you through the essential steps of setting up a MySQL environment, creating your database schema and tables, and performing basic data querying using SELECT statements.
+This guide will walk you through the essential steps of setting up a MySQL environment with [**MySQL Workbench**](https://www.mysql.com/products/workbench/), creating your database schema and tables, and performing basic data querying using SELECT statements.
 
 ## Who this guide is for
 
@@ -16,9 +16,11 @@ This user docs assignment is for our in-person course. Even talked and planned o
 
 ## How we created our guide
 
-We made our guide based on what we learned from working with MySQL in our COMP2350 Web Database Technologies.
+We made our guide based on what we learned from working with MySQL in our COMP2350 Web Database Technologies. We used the official [MySQL Workbench Documentation](https://dev.mysql.com/doc/workbench/en/) to enhance our practical understanding. We also reflected on challenges faced during our work with MySQL and lab assignments to ensure our instructions clear, complete, and concise.
 
 ### Using MkDocs
+
+We used MkDocs to serve our MySQL User Documentation because we
 
 ### Using Markdown
 
@@ -26,7 +28,7 @@ For all of us in the group, this project was our first deep dive into writing a 
 
 ### Using VS Code
 
-We used VS Code to create all of our documentation files.
+We used VS Code to create all of our documentation files because we like the MkDocs' themes, and it's easy to use but it brings effective output for our documentation. We tried to experience [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/) in our documentation. We also added on some plugins and extra css file to make it more stunning. 
 
 ### Using a Style Guide
 
